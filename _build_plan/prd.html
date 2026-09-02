@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GQ Store — PRD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    body { font-feature-settings: "cv11", "ss01"; }
+    @media print {
+      html { background: white !important; color: black !important; color-scheme: light; }
+      html.dark { color-scheme: light; }
+      html.dark body, html.dark * { background: white !important; color: black !important; border-color: #d4d4d8 !important; }
+      .no-print { display: none !important; }
+      .print-card { break-inside: avoid; page-break-inside: avoid; }
+      header.sticky { position: static !important; backdrop-filter: none !important; }
+      main { padding-top: 0 !important; }
+      a { color: black !important; text-decoration: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+  <header class="sticky top-0 z-10 backdrop-blur bg-zinc-50/80 dark:bg-zinc-950/80 border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <span class="text-sm font-medium text-zinc-500 dark:text-zinc-400">PRD · GQ Store</span>
+      <button id="theme-toggle" class="no-print inline-flex items-center justify-center w-9 h-9 rounded-md border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition" aria-label="Changer de thème">
+        <i data-lucide="sun" class="hidden dark:inline-block w-4 h-4"></i>
+        <i data-lucide="moon" class="inline-block dark:hidden w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-14">
+
+    <div class="rounded-lg border border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-900 dark:text-amber-200">
+      <p><strong class="font-semibold">À propos de ce fichier :</strong> tout le contenu de <code class="font-mono text-xs">_build_plan/</code> (ce PRD et les dossiers de jalons) est un artefact de documentation temporaire, destiné à la construction initiale de ce projet. Ces fichiers ne sont pas fonctionnels — aucun code, configuration, logique d'exécution, test ou processus de déploiement ne doit importer, lire ou dépendre de quoi que ce soit dans <code class="font-mono text-xs">_build_plan/</code>. Une fois les jalons construits et livrés, le dossier <code class="font-mono text-xs">_build_plan/</code> a vocation à être supprimé du dépôt.</p>
+    </div>
+
+    <!-- HERO -->
+    <section>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">GQ Store</h1>
+      <p class="mt-5 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">Un catalogue informatique en ligne premium pour GQ Store : le visiteur découvre les PC, accessoires et consommables disponibles, recherche et filtre le catalogue, ajoute des articles à un panier, puis envoie sa demande de commande à GQ Store via WhatsApp. Aucun paiement en ligne — WhatsApp est le canal de conversion. Un back-office protégé permet à GQ Store de gérer produits, catégories, stock, images et SEO sans développeur.</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Node.js</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Express</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">HTML / CSS / JS vanilla</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Rendu HTML côté serveur</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">PostgreSQL</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Prisma</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Cloudinary</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Render</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300">Mobile First</span>
+      </div>
+    </section>
+
+    <!-- CE QUE FAIT L'APP -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>Ce que fait le site
+      </h2>
+      <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 list-none p-0">
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Parcourir le catalogue</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Une grille de produits aérée, organisée par catégories, avec grandes photos et prix en FCFA.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="search" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Rechercher un produit</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Recherche globale par nom, marque, référence, catégorie et caractéristiques. « ThinkPad » ramène tous les ThinkPad.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="sliders-horizontal" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Filtrer et trier</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Filtres construits dynamiquement à partir des produits réellement en catalogue : marque, prix, processeur, RAM, stockage, écran, état, disponibilité.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="file-text" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Consulter une fiche produit</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Galerie photos, prix, disponibilité, référence, tableau de caractéristiques, description et produits similaires.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="shopping-cart" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Constituer un panier</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Ajout, quantités, suppression et total indicatif. Le panier reste dans le navigateur et survit au rechargement, sans aucun compte.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="message-square" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Commander sur WhatsApp</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Un clic ouvre WhatsApp avec un message pré-rempli listant les produits, les quantités et le total indicatif.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="lock" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Gérer le catalogue</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Back-office protégé : produits, catégories, marques, caractéristiques, photos et stock, sans développeur.</p>
+            </div>
+          </div>
+        </li>
+        <li class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+          <div class="flex items-start gap-3">
+            <div class="shrink-0 mt-0.5 w-8 h-8 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-4 h-4 text-zinc-700 dark:text-zinc-300"></i>
+            </div>
+            <div>
+              <p class="font-medium text-zinc-900 dark:text-zinc-100">Être trouvé sur Google</p>
+              <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Chaque produit publié génère automatiquement son URL propre, ses metadata, ses données structurées et son entrée au sitemap.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- IDENTITE VISUELLE -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="palette" class="w-3.5 h-3.5"></i>Identité visuelle
+      </h2>
+      <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Le logo GQ·STORE pose la règle : violet profond en signature, argenté en détail, blanc en base. Le site vise <span class="font-medium text-zinc-800 dark:text-zinc-200">80–90 % de blanc et de neutres pour 10–20 % de violet</span>. Le violet est réservé aux boutons principaux, liens importants, badges, icônes actives et CTA. Le fond général reste blanc. Style : premium, minimaliste, technologique — beaucoup d'espace, grandes photos, bordures très légères, ombres presque imperceptibles, micro-interactions discrètes. À proscrire : gradients marqués, ombres fortes, glassmorphism, animations partout, multiplication des couleurs, rendu « template e-commerce ».</p>
+      <div class="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#431A69"></div><div class="p-3"><p class="text-sm font-medium">Violet GQ</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#431A69</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#32104F"></div><div class="p-3"><p class="text-sm font-medium">Violet profond</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#32104F</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#5B21B6"></div><div class="p-3"><p class="text-sm font-medium">Violet lumineux</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#5B21B6</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12 border-b border-zinc-200 dark:border-zinc-800" style="background:#FFFFFF"></div><div class="p-3"><p class="text-sm font-medium">Fond principal</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#FFFFFF</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12 border-b border-zinc-200 dark:border-zinc-800" style="background:#F7F7F8"></div><div class="p-3"><p class="text-sm font-medium">Fond secondaire</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#F7F7F8</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#111111"></div><div class="p-3"><p class="text-sm font-medium">Texte principal</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#111111</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#16A34A"></div><div class="p-3"><p class="text-sm font-medium">Disponible</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#16A34A</p></div></div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden"><div class="h-12" style="background:#25D366"></div><div class="p-3"><p class="text-sm font-medium">WhatsApp</p><p class="font-mono text-xs text-zinc-500 dark:text-zinc-400">#25D366</p></div></div>
+      </div>
+      <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">Complètent la palette : texte secondaire <span class="font-mono text-xs">#6B7280</span>, bordures <span class="font-mono text-xs">#E5E7EB</span>, rupture <span class="font-mono text-xs">#DC2626</span>.</p>
+    </section>
+
+    <!-- POINT DE DEPART -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="package-check" class="w-3.5 h-3.5"></i>Point de départ
+      </h2>
+      <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Le dépôt est vide : aucun starter, aucun code existant. Rien n'est fourni d'avance — tout est construit au jalon 1. Ce qui est déjà <span class="font-medium text-zinc-800 dark:text-zinc-200">décidé</span> et n'a plus à être rediscuté :</p>
+      <ul class="mt-5 flex flex-wrap gap-2 list-none p-0">
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Serveur Node.js + Express</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Pages HTML rendues côté serveur</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>CSS et JavaScript vanilla, sans framework front</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>PostgreSQL via Prisma</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Photos hébergées chez Cloudinary</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Hébergement Render (web + base de données)</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Conception Mobile First</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Prix en FCFA, site en français</li>
+        <li class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Un seul compte administrateur en v1</li>
+      </ul>
+    </section>
+
+    <!-- HORS PERIMETRE -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="minus-circle" class="w-3.5 h-3.5"></i>Hors périmètre (v1)
+      </h2>
+      <ul class="mt-5 space-y-2.5 list-none p-0">
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Paiement en ligne</span><span class="text-zinc-500 dark:text-zinc-400"> — ni Stripe, ni carte bancaire, ni portefeuille électronique. La transaction se conclut avec GQ Store sur WhatsApp.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Tunnel de commande classique</span><span class="text-zinc-500 dark:text-zinc-400"> — pas d'étapes de checkout, pas de statuts de commande, pas de facturation automatique.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Compte client</span><span class="text-zinc-500 dark:text-zinc-400"> — aucune inscription pour commander. Le panier vit dans le navigateur du visiteur.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Gestion de livraison</span><span class="text-zinc-500 dark:text-zinc-400"> — frais, zones et suivi se négocient dans la conversation WhatsApp.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Marketplace multi-vendeurs</span><span class="text-zinc-500 dark:text-zinc-400"> — un seul vendeur : GQ Store.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Avis et notes clients</span><span class="text-zinc-500 dark:text-zinc-400"> — demande de la modération et du volume ; sans intérêt au lancement.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Comparateur de produits</span><span class="text-zinc-500 dark:text-zinc-400"> — la fiche produit et les filtres suffisent pour choisir en v1.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Liste de souhaits / favoris</span><span class="text-zinc-500 dark:text-zinc-400"> — le panier joue déjà ce rôle sans compte.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Alerte retour en stock</span><span class="text-zinc-500 dark:text-zinc-400"> — le visiteur peut déjà écrire sur WhatsApp depuis la fiche produit.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Blog et contenu éditorial</span><span class="text-zinc-500 dark:text-zinc-400"> — le SEO de la v1 repose sur les pages produits et catégories.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Site multilingue</span><span class="text-zinc-500 dark:text-zinc-400"> — français uniquement.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Statistiques de visite avancées</span><span class="text-zinc-500 dark:text-zinc-400"> — le tableau de bord se limite aux compteurs du catalogue.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Plusieurs administrateurs et rôles</span><span class="text-zinc-500 dark:text-zinc-400"> — un seul compte admin en v1 ; le modèle pourra évoluer ensuite.</span></span></li>
+        <li class="flex items-start gap-3"><i data-lucide="x" class="w-4 h-4 mt-1 shrink-0 text-zinc-400 dark:text-zinc-600"></i><span class="text-zinc-700 dark:text-zinc-300"><span class="font-medium">Application mobile</span><span class="text-zinc-500 dark:text-zinc-400"> — le site responsive Mobile First couvre l'usage téléphone.</span></span></li>
+      </ul>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="plug" class="w-3.5 h-3.5"></i>Services externes
+      </h2>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="image" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i>
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Cloudinary</h3>
+            <span class="ml-auto text-xs text-zinc-500 dark:text-zinc-400">Photos produits</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Range les photos ailleurs que sur le serveur — Render efface les fichiers écrits sur disque à chaque redéploiement. Cloudinary redimensionne et convertit aussi les images en WebP/AVIF automatiquement, ce qui règle une bonne partie de l'objectif de performance.</p>
+          <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="key" class="w-3 h-3"></i>À obtenir</p>
+          <ul class="mt-2 space-y-1.5 list-none p-0">
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Compte Cloudinary (offre gratuite)</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Nom du cloud, clé API et secret API</li>
+          </ul>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="message-square" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i>
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">WhatsApp</h3>
+            <span class="ml-auto text-xs text-zinc-500 dark:text-zinc-400">Canal de commande</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Le site ouvre simplement une conversation WhatsApp avec un message pré-rempli. Ce n'est pas l'API WhatsApp Business : aucun compte développeur, aucune validation Meta, aucun coût. Un numéro qui reçoit WhatsApp suffit.</p>
+          <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="key" class="w-3 h-3"></i>À obtenir</p>
+          <ul class="mt-2 space-y-1.5 list-none p-0">
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Le numéro WhatsApp de GQ Store, au format international</li>
+          </ul>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="cloud" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i>
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Render</h3>
+            <span class="ml-auto text-xs text-zinc-500 dark:text-zinc-400">Hébergement</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Fait tourner le site en ligne et héberge la base de données PostgreSQL. Le nom de domaine se branche dessus, avec le certificat HTTPS fourni.</p>
+          <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="key" class="w-3 h-3"></i>À obtenir</p>
+          <ul class="mt-2 space-y-1.5 list-none p-0">
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Compte Render (web service + PostgreSQL)</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Nom de domaine acheté (ex. gqstore.com)</li>
+          </ul>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="search" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i>
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Google Search Console</h3>
+            <span class="ml-auto text-xs text-zinc-500 dark:text-zinc-400">Référencement</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Outil gratuit de Google pour déclarer le sitemap et suivre l'indexation des pages produits. Rien à coder : une vérification de propriété du domaine au déploiement.</p>
+          <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="key" class="w-3 h-3"></i>À obtenir</p>
+          <ul class="mt-2 space-y-1.5 list-none p-0">
+            <li class="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"><i data-lucide="key-round" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Compte Google + accès au domaine pour la vérification</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-4 rounded-md border-l-4 border-amber-400 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-900 dark:text-amber-200">
+        <p><span class="font-semibold">Le SEO automatique n'est pas un classement automatique.</span> Le système génère la partie technique — URLs, metadata, données structurées, sitemap. Le positionnement réel dépend de la qualité des fiches, de la concurrence, des recherches réelles et de l'autorité du domaine.</p>
+      </div>
+    </section>
+
+    <!-- MODELE DE DONNEES -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="database" class="w-3.5 h-3.5"></i>Modèle de données
+      </h2>
+      <p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400">Ce que le site a besoin de retenir.</p>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="box" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Produit</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">nom</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">le nom commercial affiché, ex. « Lenovo ThinkPad T14 Gen 2 »</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">slug</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'adresse web lisible du produit, générée à partir du nom</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">description</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">le texte de présentation rédigé par l'admin</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">prix</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">le prix affiché, en FCFA</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">prix promo</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">un prix réduit facultatif ; s'il existe, il devient le prix affiché et l'ancien est barré</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">stock</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">la quantité disponible ; à zéro le produit passe en rupture</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">référence</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">la référence interne GQ Store, recherchable</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">état</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">saisi librement par l'admin (neuf, reconditionné, occasion, ou tout autre libellé) ; les valeurs déjà utilisées lui sont proposées, et le filtre « état » se construit à partir de ce qui existe</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">visibilité</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">publié ou masqué ; un produit masqué disparaît du site et du sitemap</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">mis en avant</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">indique si le produit remonte dans « produits populaires » sur l'accueil</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">titre SEO</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">généré automatiquement, modifiable par l'admin</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">description SEO</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">générée automatiquement à partir de la fiche, modifiable</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">dates</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">création et dernière modification, pour « produits récemment ajoutés » et le sitemap</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · une Catégorie, une Marque, plusieurs Photos, plusieurs Caractéristiques</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="image" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Photo produit</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">adresse</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">où l'image est stockée chez Cloudinary</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">texte alternatif</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">la description lue par Google et les lecteurs d'écran, pré-remplie avec le nom du produit</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">position</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'ordre dans la galerie, réorganisable par l'admin</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">principale</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">indique la photo utilisée sur les cartes du catalogue et dans les partages</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · un Produit</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Catégorie</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">nom</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">ex. « Ordinateurs portables », « PC Gamer », « Consommables »</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">slug</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'adresse de sa page, ex. /catalogue/ordinateurs-portables</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">texte de présentation</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">le contenu affiché en tête de la page catégorie, utile au référencement</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">titre &amp; description SEO</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">générés automatiquement, modifiables</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">position</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'ordre dans le menu, réorganisable</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">visibilité</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">une catégorie masquée disparaît du menu et du sitemap</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · plusieurs Produits</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Marque</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">nom</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">ex. Lenovo, HP, Dell, Canon</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">slug</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">utilisé dans les filtres et les données structurées</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · plusieurs Produits</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="list" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Caractéristique</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">libellé</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">ex. « Processeur », « RAM », « Stockage », « Écran »</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">valeur</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">ex. « Intel Core i5 », « 16 Go », « 512 Go SSD », « 14 pouces »</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">position</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'ordre des lignes dans le tableau de la fiche produit</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · un Produit. Les libellés déjà utilisés sont proposés à l'admin et alimentent les filtres du catalogue.</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <div class="flex items-center gap-2"><i data-lucide="shield" class="w-4 h-4 text-zinc-500 dark:text-zinc-400"></i><h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Administrateur</h3></div>
+          <table class="mt-4 w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">nom</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">affiché dans le « Bonjour … » du tableau de bord</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">email</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">l'identifiant de connexion</td></tr>
+            <tr><td class="py-2 pr-4 font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">mot de passe</td><td class="py-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">stocké chiffré, jamais en clair</td></tr>
+          </tbody></table>
+          <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-400"><span class="font-semibold uppercase tracking-[0.14em] text-[11px]">Lié à</span> · rien. Un seul compte en v1, le modèle pourra accueillir plusieurs comptes et des rôles plus tard.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>Parcours utilisateurs
+      </h2>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <p class="font-medium text-zinc-900 dark:text-zinc-100">A · Découverte</p>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Accueil → Catalogue → Fiche produit → Caractéristiques → WhatsApp.</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <p class="font-medium text-zinc-900 dark:text-zinc-100">B · Panier multi-produits</p>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Catalogue → Produit A au panier → Produit B au panier → Panier → Commande WhatsApp.</p>
+        </div>
+        <div class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+          <p class="font-medium text-zinc-900 dark:text-zinc-100">C · Arrivée depuis Google</p>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Recherche Google → Fiche produit GQ Store → Panier → WhatsApp. C'est ce parcours qui rend le jalon SEO décisif.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JALONS -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="route" class="w-3.5 h-3.5"></i>Jalons
+      </h2>
+      <div class="mt-5 space-y-5">
+
+        <article class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
+          <header class="flex items-center gap-3 p-5 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center text-sm font-semibold">1</span>
+            <h3 class="font-semibold text-lg text-zinc-900 dark:text-zinc-100">Fondations &amp; back-office</h3>
+          </header>
+          <div class="p-5">
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">GQ Store peut se connecter à son back-office et remplir son catalogue de bout en bout : catégories, marques, produits, caractéristiques, photos, stock. Rien n'est encore visible côté public — mais toute la matière du site existe.</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Ce qui est construit</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Écran de connexion et déconnexion sur <span class="font-mono text-xs">/admin</span>, inaccessible sans identifiants</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Tableau de bord : « Bonjour GQ Store », compteurs produits / catégories / disponibles / ruptures</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Listes de raccourcis : produits récemment ajoutés, produits en rupture, produits mis en avant, bouton « Ajouter un produit »</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Liste de produits avec recherche, et actions modifier / supprimer / dupliquer / masquer / mettre en avant</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Formulaire produit : nom, marque, catégorie, description, prix, prix promo, référence, état saisi librement, stock</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Caractéristiques libres, ajoutées ligne par ligne, avec suggestion des libellés déjà utilisés</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Photos multiples envoyées vers Cloudinary : choix de l'image principale, réorganisation, suppression, texte alternatif</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Gestion des catégories et des marques : créer, modifier, supprimer, réorganiser, masquer</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Pas dans ce jalon</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-500 dark:text-zinc-400 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Aucune page publique — ni accueil, ni catalogue, ni fiche produit</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Panier et WhatsApp</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Génération SEO automatique, sitemap, robots</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Habillage graphique poussé du back-office : lisible et sobre suffit</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Plusieurs comptes admin, rôles, réinitialisation de mot de passe par email</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Import en masse de produits (CSV, Excel)</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-5 rounded-md border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+              <p class="flex items-start gap-2"><i data-lucide="flag" class="w-4 h-4 mt-0.5 shrink-0"></i><span><span class="font-semibold">Terminé quand :</span> vous vous connectez à <span class="font-mono text-xs">/admin</span>, créez une catégorie et une marque, publiez un produit avec trois photos et cinq caractéristiques, modifiez son stock, le masquez puis le réaffichez — et qu'en navigation privée <span class="font-mono text-xs">/admin</span> renvoie vers la page de connexion.</span></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
+          <header class="flex items-center gap-3 p-5 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center text-sm font-semibold">2</span>
+            <h3 class="font-semibold text-lg text-zinc-900 dark:text-zinc-100">Site public</h3>
+          </header>
+          <div class="p-5">
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Le catalogue devient visible et navigable, à l'identité GQ Store. Un visiteur sur téléphone trouve un produit, le filtre, le compare et consulte sa fiche complète. Il ne peut pas encore commander.</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Ce qui est construit</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Charte GQ appliquée : palette violet/blanc/argenté, typographie, espacements, bordures légères, composants de base réutilisables</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>En-tête avec logo, navigation, recherche ; pied de page avec navigation, contact, horaires</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Accueil : hero sobre, deux appels à l'action, sélection de produits mis en avant</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span><span class="font-mono text-xs">/catalogue</span> en grille aérée, avec tri et chargement progressif ou pagination</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Pages catégorie <span class="font-mono text-xs">/catalogue/{slug}</span> avec leur texte de présentation</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Recherche globale sur nom, marque, référence, catégorie et caractéristiques</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Filtres construits à partir des produits existants — panneau glissant sur mobile, colonne latérale sur desktop</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Fiche produit <span class="font-mono text-xs">/produits/{slug}</span> : galerie, prix (et prix barré si promo), disponibilité, référence, tableau de caractéristiques, description, produits similaires</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Badge « Disponible » ou « Rupture de stock » sur les cartes et les fiches</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Pas dans ce jalon</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-500 dark:text-zinc-400 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Panier, bouton flottant, message WhatsApp</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Metadata SEO automatiques, données structurées, sitemap</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Optimisation fine des images et des performances (jalon 5)</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Zoom sur les photos, vidéos produit, visite 360°</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Formulaire de contact — le contact passe par WhatsApp et le téléphone</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-5 rounded-md border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+              <p class="flex items-start gap-2"><i data-lucide="flag" class="w-4 h-4 mt-0.5 shrink-0"></i><span><span class="font-semibold">Terminé quand :</span> depuis un téléphone, vous parcourez le catalogue, filtrez par marque et par prix, cherchez « ThinkPad » et obtenez les bons résultats, ouvrez une fiche produit avec galerie et caractéristiques — et qu'un produit à stock zéro affiche « Rupture de stock ».</span></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
+          <header class="flex items-center gap-3 p-5 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center text-sm font-semibold">3</span>
+            <h3 class="font-semibold text-lg text-zinc-900 dark:text-zinc-100">Panier &amp; commande WhatsApp</h3>
+          </header>
+          <div class="p-5">
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Le catalogue devient commercial : le visiteur constitue sa sélection et l'envoie à GQ Store sur WhatsApp en un clic. C'est le jalon qui transforme la consultation en demande de commande.</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Ce qui est construit</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Bouton « Ajouter au panier » sur la fiche produit et sur les cartes du catalogue</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Compteur d'articles dans l'en-tête, visible sur mobile</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Page panier : lignes produit avec photo, prix, quantité modifiable, suppression, et « Total indicatif » en FCFA</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Panier conservé dans le navigateur : il survit au rechargement et à la fermeture de l'onglet</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Panier vide illustré, avec un lien de retour au catalogue</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>« Commander sur WhatsApp » : ouvre WhatsApp avec le message pré-rempli listant produits, quantités et total indicatif</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>« Commander sur WhatsApp » également disponible directement depuis une fiche produit, pour un seul article</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Bouton WhatsApp flottant en bas à droite, discret, ne masquant aucun élément important</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>« Ajouter au panier » désactivé sur un produit en rupture</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Pas dans ce jalon</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-500 dark:text-zinc-400 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Tout paiement, toute saisie de carte bancaire</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Enregistrement du panier côté serveur, historique de commandes, relance de panier abandonné</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Codes promo, frais de livraison, calcul de taxes</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Vérification en direct du stock au moment de l'envoi WhatsApp</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Notification email ou tableau des demandes côté admin</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-5 rounded-md border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+              <p class="flex items-start gap-2"><i data-lucide="flag" class="w-4 h-4 mt-0.5 shrink-0"></i><span><span class="font-semibold">Terminé quand :</span> vous ajoutez deux produits au panier, modifiez une quantité, rechargez la page sans rien perdre, puis cliquez « Commander sur WhatsApp » et voyez WhatsApp s'ouvrir avec un message contenant les deux produits, leurs quantités et le total indicatif.</span></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
+          <header class="flex items-center gap-3 p-5 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center text-sm font-semibold">4</span>
+            <h3 class="font-semibold text-lg text-zinc-900 dark:text-zinc-100">SEO automatique</h3>
+          </header>
+          <div class="p-5">
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Publier un produit suffit à le rendre trouvable : le site fabrique seul son adresse, ses metadata, ses données structurées et son entrée au sitemap. C'est ce qui alimente le parcours « arrivée depuis Google ».</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Ce qui est construit</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Adresse lisible générée à la création : <span class="font-mono text-xs">/produits/lenovo-thinkpad-t14-gen-2</span></span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Titre de page, description, H1 et textes alternatifs générés à partir de la fiche</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Champs SEO modifiables par l'admin, qui prennent le pas sur le texte généré</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Données structurées Product : nom, image, description, marque, prix, devise, disponibilité</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Fil d'Ariane affiché et déclaré en données structurées</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Aperçus de partage (Open Graph) avec la photo principale du produit</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Adresse canonique sur chaque page, y compris sous filtres et pagination</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Pages catégorie indexables avec leur propre titre, description et contenu</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span><span class="font-mono text-xs">/sitemap.xml</span> à jour automatiquement, ne listant que les pages, catégories et produits visibles</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span><span class="font-mono text-xs">/robots.txt</span> excluant <span class="font-mono text-xs">/admin</span> de l'indexation</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Pas dans ce jalon</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-500 dark:text-zinc-400 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Rédaction de contenu marketing ou de fiches produits par le système</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Blog, pages d'atterrissage thématiques, netlinking</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Google Analytics, Tag Manager, pixels publicitaires</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Flux produits Google Merchant Center ou Facebook</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Traductions et balises de langue alternatives</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-5 rounded-md border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+              <p class="flex items-start gap-2"><i data-lucide="flag" class="w-4 h-4 mt-0.5 shrink-0"></i><span><span class="font-semibold">Terminé quand :</span> un produit créé dans le back-office apparaît dans <span class="font-mono text-xs">/sitemap.xml</span> avec une adresse propre, que sa page contient titre, description, canonique, aperçu de partage et données structurées Product valides, que <span class="font-mono text-xs">/robots.txt</span> exclut <span class="font-mono text-xs">/admin</span> — et que masquer le produit le retire du sitemap.</span></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
+          <header class="flex items-center gap-3 p-5 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 flex items-center justify-center text-sm font-semibold">5</span>
+            <h3 class="font-semibold text-lg text-zinc-900 dark:text-zinc-100">Finition, sécurité &amp; mise en ligne</h3>
+          </header>
+          <div class="p-5">
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Le site passe de « ça marche » à « c'est en ligne, c'est rapide et c'est sûr ». Aucune fonctionnalité nouvelle : on serre les boulons et on livre.</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>Ce qui est construit</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Images servies au bon format et à la bonne taille, chargement différé hors écran</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Allègement du CSS et du JavaScript, mise en cache des pages et des ressources</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Passe complète sur mobile : cibles tactiles, panneaux de filtres, lisibilité, panier, bouton WhatsApp</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Durcissement de la sécurité : mot de passe chiffré, session robuste, protection des routes et des API d'administration, limitation des tentatives de connexion</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Page 404 aux couleurs GQ Store, avec retour au catalogue</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Tests des parcours critiques : publication d'un produit, recherche, filtre, panier, message WhatsApp</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Mise en ligne sur Render (service web + PostgreSQL), variables d'environnement, domaine personnalisé en HTTPS</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Sitemap déclaré dans Google Search Console</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400"></i><span>Relecture des critères d'acceptation, un par un</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500"></i>Pas dans ce jalon</h4>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-500 dark:text-zinc-400 list-none p-0">
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Toute fonctionnalité nouvelle</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Supervision avancée, alertes, suivi d'erreurs tiers</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Chaîne d'intégration continue élaborée</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>CDN tiers supplémentaire devant Render</span></li>
+                  <li class="flex items-start gap-2"><i data-lucide="minus" class="w-3.5 h-3.5 mt-0.5 shrink-0"></i><span>Stratégie de sauvegarde et de restauration de base de données au-delà de ce que Render fournit</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-5 rounded-md border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+              <p class="flex items-start gap-2"><i data-lucide="flag" class="w-4 h-4 mt-0.5 shrink-0"></i><span><span class="font-semibold">Terminé quand :</span> le site est accessible en ligne sur le domaine de GQ Store en HTTPS, qu'un audit Lighthouse mobile donne au moins 90 en performance et en SEO, et que les 23 critères d'acceptation ci-dessous sont tous cochés.</span></p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CRITERES D'ACCEPTATION -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>Critères d'acceptation
+      </h2>
+      <p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400">Le projet est considéré comme livré lorsque les 23 points suivants sont vrais.</p>
+      <div class="mt-5 print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+        <ul class="space-y-2.5 text-sm text-zinc-700 dark:text-zinc-300 list-none p-0">
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut créer un produit.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut modifier un produit.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut supprimer ou masquer un produit.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut ajouter plusieurs photos à un produit.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut gérer le stock.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>L'admin peut gérer les catégories.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le produit apparaît automatiquement dans le catalogue.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Une adresse web SEO est générée automatiquement.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Les metadata SEO sont générées automatiquement.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le produit apparaît dans le sitemap.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut rechercher un produit.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut filtrer le catalogue.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut consulter une fiche produit complète.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut ajouter un produit au panier.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut modifier les quantités.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le visiteur peut retirer un produit du panier.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le panier survit au rechargement de la page.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le bouton WhatsApp génère automatiquement le message de commande.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Aucune carte bancaire n'est jamais demandée.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le site fonctionne parfaitement sur mobile.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Le site fonctionne sur desktop.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span>Les pages produits sont accessibles aux moteurs de recherche.</span></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="square" class="w-4 h-4 mt-0.5 shrink-0 text-zinc-300 dark:text-zinc-600"></i><span><span class="font-mono text-xs">/admin</span> est protégé et non indexé.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COORDONNEES -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <i data-lucide="phone" class="w-3.5 h-3.5"></i>Coordonnées affichées
+      </h2>
+      <div class="mt-5 print-card rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5">
+        <table class="w-full text-sm"><tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Enseigne</td><td class="py-2 text-zinc-600 dark:text-zinc-400">GQ Store — Consommables informatiques de qualité</td></tr>
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Numéro WhatsApp</td><td class="py-2 text-amber-700 dark:text-amber-400 font-medium">À FOURNIR — au format international, ex. +229 01 XX XX XX XX</td></tr>
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Adresse</td><td class="py-2 text-zinc-600 dark:text-zinc-400">Calavi, Bénin</td></tr>
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Horaires</td><td class="py-2 text-zinc-600 dark:text-zinc-400">Lundi – Samedi, 09h30 – 20h30</td></tr>
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Devise</td><td class="py-2 text-zinc-600 dark:text-zinc-400">FCFA</td></tr>
+          <tr><td class="py-2 pr-4 font-medium text-zinc-700 dark:text-zinc-300 align-top whitespace-nowrap">Réseaux sociaux</td><td class="py-2 text-zinc-600 dark:text-zinc-400">à ajouter au pied de page si GQ Store en possède</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <footer class="pt-8 border-t border-zinc-200 dark:border-zinc-800 text-xs text-zinc-500 dark:text-zinc-400">
+      Généré par <span class="font-medium">bm-prd-creator</span>. Ouvrez le <code class="font-mono">prompt.md</code> du jalon 1 pour démarrer la construction.
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var stored = localStorage.getItem('prd-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var initial = stored ? stored : (prefersDark ? 'dark' : 'light');
+      if (initial === 'dark') html.classList.add('dark');
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var isDark = html.classList.toggle('dark');
+          localStorage.setItem('prd-theme', isDark ? 'dark' : 'light');
+        });
+      }
+      if (window.lucide) window.lucide.createIcons();
+    })();
+  </script>
+</body>
+</html>
