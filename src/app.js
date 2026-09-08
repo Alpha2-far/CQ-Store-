@@ -13,6 +13,9 @@ const { notFoundHandler, errorHandler } = require('./middlewares/error');
 
 const app = express();
 
+// Configuration du reverse proxy (Render, Cloudflare, etc.) pour HTTPS et cookies sécurisés
+app.set('trust proxy', 1);
+
 // Compression HTTP automatique pour accélérer les transferts
 app.use(compression());
 

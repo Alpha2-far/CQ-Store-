@@ -119,7 +119,8 @@ describe('GQ Store — Jalon 2 Tests Vitrine Publique & Catalogue', () => {
     if (product.specifications.length > 0) {
       assert.ok(html.includes('Caractéristiques Techniques'));
       assert.ok(html.includes(product.specifications[0].label));
-      assert.ok(html.includes(product.specifications[0].value));
+      const escapedVal = product.specifications[0].value.replace(/'/g, '&#39;');
+      assert.ok(html.includes(escapedVal) || html.includes(product.specifications[0].value));
     }
 
     // Vérifier la galerie d'images
