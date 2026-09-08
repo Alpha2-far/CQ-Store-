@@ -1,0 +1,51 @@
+<!-- Header Mobile -->
+<header class="admin-header-mobile">
+  <a href="/admin">
+    <img src="/images/logo-gq-store.png" alt="GQ Store" class="mobile-logo">
+  </a>
+  <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu">
+    <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+  </button>
+</header>
+
+<!-- Drawer Mobile -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-content">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">
+      <img src="/images/logo-gq-store.png" alt="GQ Store" style="height: 32px; width: auto;">
+      <button type="button" class="mobile-menu-btn" id="closeDrawerBtn" aria-label="Fermer le menu">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 6px; flex: 1;">
+      <a href="/admin" class="nav-link <%= currentPath === '/admin' ? 'active' : '' %>">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Tableau de bord</span>
+      </a>
+      <a href="/admin/products" class="nav-link <%= currentPath.startsWith('/admin/products') ? 'active' : '' %>">
+        <i data-lucide="box"></i>
+        <span>Produits</span>
+      </a>
+      <a href="/admin/categories" class="nav-link <%= currentPath.startsWith('/admin/categories') ? 'active' : '' %>">
+        <i data-lucide="folder"></i>
+        <span>Catégories</span>
+      </a>
+      <a href="/admin/brands" class="nav-link <%= currentPath.startsWith('/admin/brands') ? 'active' : '' %>">
+        <i data-lucide="tag"></i>
+        <span>Marques</span>
+      </a>
+    </nav>
+
+    <div style="padding-top: 16px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <div style="font-size: 13px; font-weight: 600;"><%= adminUser ? adminUser.name : 'GQ Store' %></div>
+        <div style="font-size: 11px; color: var(--text-secondary);"><%= adminUser ? adminUser.email : 'admin' %></div>
+      </div>
+      <a href="/admin/logout" class="btn btn-secondary btn-sm" title="Déconnexion">
+        <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+        <span>Quitter</span>
+      </a>
+    </div>
+  </div>
+</div>

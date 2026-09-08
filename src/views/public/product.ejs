@@ -1,0 +1,282 @@
+<%- include('../partials/public-header') %>
+
+<div class="container product-detail-layout">
+  
+  <!-- Fil d'Ariane -->
+  <nav class="product-breadcrumb" aria-label="Fil d'Ariane" style="margin-bottom: 24px;">
+    <a href="/">Accueil</a>
+    <span>/</span>
+    <a href="/catalogue">Catalogue</a>
+    <% if (product.category) { %>
+      <span>/</span>
+      <a href="/catalogue/<%= product.category.slug %>"><%= product.category.name %></a>
+    <% } %>
+    <span>/</span>
+    <span style="color: var(--text-primary); font-weight: 600;"><%= product.name %></span>
+  </nav>
+
+  <!-- Grille Principale Produit -->
+  <div class="product-main-grid">
+    
+    <!-- Colonne Galerie Photos -->
+    <div class="product-gallery">
+      <div class="gallery-main-box">
+        <% if (product.photos && product.photos.length > 0) { %>
+          <img 
+            id="galleryMainImage" 
+            src="<%= product.photos[0].url %>" 
+            alt="<%= product.photos[0].alt || product.name %>" 
+            class="gallery-main-img"
+            fetchpriority="high"
+            decoding="async"
+          >
+        <% } else { %>
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); gap: 10px;">
+            <i data-lucide="image" style="width: 48px; height: 48px;"></i>
+            <span style="font-size: 13px;">GQ Store — Photo à venir</span>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Miniatures -->
+      <% if (product.photos && product.photos.length > 1) { %>
+        <div class="gallery-thumbs">
+          <% product.photos.forEach((photo, idx) => { %>
+            <button 
+              type="button" 
+              class="gallery-thumb-btn <%= idx === 0 ? 'active' : '' %>" 
+              data-full-img="<%= photo.url %>"
+              aria-label="Photo <%= idx + 1 %>"
+            >
+              <img src="<%= photo.url %>" alt="<%= photo.alt || (product.name + ' - Vue ' + (idx + 1)) %>" loading="lazy" decoding="async">
+            </button>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Colonne Infos & Prix -->
+    <div class="product-info-panel">
+      
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
+          <% if (product.brand) { %>
+            <a href="/catalogue?brand=<%= product.brand.slug %>" class="product-card-brand" style="font-size: 13px; color: var(--gq-purple);">
+              <%= product.brand.name %>
+            </a>
+          <% } else { %>
+            <span class="product-card-brand">GQ Store</span>
+          <% } %>
+
+          <span class="badge-condition"><%= product.condition %></span>
+        </div>
+
+        <h1 class="product-detail-title"><%= product.name %></h1>
+
+        <% if (product.reference) { %>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+            Réf: <span style="font-mono;"><%= product.reference %></span>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Badges de statut & Stock -->
+      <div class="product-meta-row">
+        <% if (product.stock > 0) { %>
+          <span class="badge-status badge-available" style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; font-size: 13px;">
+            <i data-lucide="check-circle" style="width: 14px; height: 14px;"></i>
+            <span>En stock (<%= product.stock %> disponible<%= product.stock > 1 ? 's' : '' %>)</span>
+          </span>
+        <% } else { %>
+          <span class="badge-status badge-out-of-stock" style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; font-size: 13px;">
+            <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
+            <span>Rupture de stock</span>
+          </span>
+        <% } %>
+      </div>
+
+      <!-- Boîte de Prix -->
+      <div class="product-price-box">
+        <% if (product.promoPrice && product.promoPrice < product.price) { %>
+          <span class="detail-price"><%= formatFCFA(product.promoPrice) %></span>
+          <span class="detail-old-price"><%= formatFCFA(product.price) %></span>
+          <span style="font-size: 12px; font-weight: 700; color: var(--danger); background: var(--danger-bg); padding: 2px 6px; border-radius: var(--radius-sm);">
+            -<%= Math.round(((product.price - product.promoPrice) / product.price) * 100) %>%
+          </span>
+        <% } else { %>
+          <span class="detail-price"><%= formatFCFA(product.price) %></span>
+        <% } %>
+      </div>
+
+      <!-- Actions d'Achat & Commande WhatsApp (Jalon 3) -->
+      <div class="product-buy-section" style="display: flex; flex-direction: column; gap: 12px; margin: 4px 0 12px;">
+        <% const currentPrice = (product.promoPrice && product.promoPrice < product.price) ? product.promoPrice : product.price; %>
+        <% const mainPhotoUrl = (product.photos && product.photos.length > 0) ? product.photos[0].url : ''; %>
+
+        <% if (product.stock > 0) { %>
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <!-- Sélecteur de Quantité Tactile -->
+            <div style="display: flex; align-items: center; gap: 2px; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2px; background: var(--bg-secondary);">
+              <button type="button" class="qty-btn" onclick="const input = document.getElementById('productDetailQty'); if (input && parseInt(input.value,10) > 1) input.value--;" aria-label="Diminuer">-</button>
+              <input type="number" id="productDetailQty" value="1" min="1" max="<%= product.stock %>" class="qty-input" style="width: 40px;" readonly>
+              <button type="button" class="qty-btn" onclick="const input = document.getElementById('productDetailQty'); if (input && parseInt(input.value,10) < <%= product.stock %>) input.value++;" aria-label="Augmenter">+</button>
+            </div>
+
+            <!-- Bouton Ajouter au panier -->
+            <button 
+              type="button" 
+              class="btn btn-primary" 
+              style="flex: 1; min-width: 170px;"
+              data-action="add-to-cart"
+              data-product-id="<%= product.id %>"
+              data-product-name="<%= product.name %>"
+              data-product-slug="<%= product.slug %>"
+              data-product-ref="<%= product.reference %>"
+              data-product-price="<%= currentPrice %>"
+              data-product-photo="<%= mainPhotoUrl %>"
+              data-product-stock="<%= product.stock %>"
+            >
+              <i data-lucide="shopping-bag" style="width: 18px; height: 18px;"></i>
+              <span>Ajouter au panier</span>
+            </button>
+          </div>
+
+          <!-- Bouton Commander sur WhatsApp direct -->
+          <button 
+            type="button" 
+            id="btnDirectWhatsApp" 
+            class="btn btn-whatsapp btn-block"
+            data-whatsapp-number="<%= typeof whatsappNumber !== 'undefined' ? whatsappNumber : '22998471366' %>"
+            data-product-name="<%= product.name %>"
+            data-product-ref="<%= product.reference %>"
+            data-product-price="<%= currentPrice %>"
+          >
+            <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="" class="whatsapp-button-icon">
+            <span>Commander sur WhatsApp</span>
+          </button>
+        <% } else { %>
+          <!-- Produit en rupture de stock : Ajout au panier désactivé -->
+          <button type="button" class="btn btn-secondary btn-block" disabled style="opacity: 0.6; cursor: not-allowed;">
+            <i data-lucide="slash" style="width: 18px; height: 18px;"></i>
+            <span>Rupture de stock — Ajout impossible</span>
+          </button>
+
+          <!-- Contact direct pour retour en stock -->
+          <a 
+            href="https://wa.me/<%= typeof whatsappNumber !== 'undefined' ? whatsappNumber : '22998471366' %>?text=<%= encodeURIComponent('Bonjour GQ Store, je suis intéressé par « ' + product.name + ' » actuellement en rupture de stock. Prévoyez-vous un réapprovisionnement prochain ?') %>" 
+            class="btn btn-whatsapp btn-block"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="" class="whatsapp-button-icon">
+            <span>Se renseigner sur WhatsApp</span>
+          </a>
+        <% } %>
+      </div>
+
+      <!-- Description -->
+      <% if (product.description) { %>
+        <div style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; white-space: pre-line; border-top: 1px solid var(--border-light); padding-top: 16px;">
+          <%= product.description %>
+        </div>
+      <% } %>
+
+      <!-- Réassurance Fiche Produit -->
+      <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 16px; display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-primary);">
+          <i data-lucide="shield-check" style="width: 18px; height: 18px; color: var(--gq-purple); shrink: 0;"></i>
+          <span>Matériel 100% fonctionnel, inspecté avant mise en vente</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-primary);">
+          <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--gq-purple); shrink: 0;"></i>
+          <span>Retrait immédiat à Calavi ou expédition express</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Caractéristiques Techniques -->
+  <% if (product.specifications && product.specifications.length > 0) { %>
+    <div class="specs-card">
+      <div class="specs-card-header">
+        Caractéristiques Techniques
+      </div>
+      <table class="specs-table">
+        <tbody>
+          <% product.specifications.forEach(spec => { %>
+            <tr>
+              <td><%= spec.label %></td>
+              <td><strong><%= spec.value %></strong></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+
+  <!-- Produits Similaires -->
+  <% if (similarProducts && similarProducts.length > 0) { %>
+    <div style="margin-top: 60px;">
+      <div class="section-header">
+        <h2 class="section-title">Produits similaires</h2>
+        <a href="/catalogue" class="btn btn-secondary btn-sm">Explorer le catalogue &rarr;</a>
+      </div>
+
+      <div class="products-grid">
+        <% similarProducts.forEach(prod => { %>
+          <div class="product-card">
+            <a href="/produits/<%= prod.slug %>" class="product-card-image-box" aria-label="<%= prod.name %>">
+              <% if (prod.photos && prod.photos.length > 0) { %>
+                <img src="<%= prod.photos[0].url %>" alt="<%= prod.photos[0].alt || prod.name %>" class="product-card-image" loading="lazy" decoding="async">
+              <% } else { %>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); gap: 6px;">
+                  <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+                  <span style="font-size: 11px;">GQ Store</span>
+                </div>
+              <% } %>
+
+              <div class="card-badge-top">
+                <% if (prod.stock > 0) { %>
+                  <span class="badge-status badge-available">Disponible</span>
+                <% } else { %>
+                  <span class="badge-status badge-out-of-stock">Rupture de stock</span>
+                <% } %>
+              </div>
+            </a>
+
+            <div class="product-card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                <span class="product-card-brand"><%= prod.brand ? prod.brand.name : 'GQ Store' %></span>
+                <span class="badge-condition"><%= prod.condition %></span>
+              </div>
+
+              <a href="/produits/<%= prod.slug %>" class="product-card-title" title="<%= prod.name %>">
+                <%= prod.name %>
+              </a>
+
+              <div class="product-card-footer">
+                <div>
+                  <% if (prod.promoPrice && prod.promoPrice < prod.price) { %>
+                    <span class="product-card-price"><%= formatFCFA(prod.promoPrice) %></span>
+                    <span class="product-card-promo-old"><%= formatFCFA(prod.price) %></span>
+                  <% } else { %>
+                    <span class="product-card-price"><%= formatFCFA(prod.price) %></span>
+                  <% } %>
+                </div>
+
+                <a href="/produits/<%= prod.slug %>" class="btn btn-outline-purple btn-sm" aria-label="Voir <%= prod.name %>">
+                  <span>Détails</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+
+</div>
+
+<%- include('../partials/public-footer') %>

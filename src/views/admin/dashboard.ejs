@@ -1,0 +1,189 @@
+<%- include('../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Bonjour <%= adminUser ? adminUser.name : 'GQ Store' %> 👋</h1>
+    <p class="page-subtitle">Voici l'état actuel de votre catalogue informatique</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/products/new" class="btn btn-primary">
+      <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+      <span>Ajouter un produit</span>
+    </a>
+  </div>
+</div>
+
+<!-- Compteurs Statistiques -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="stat-label">Total Produits</span>
+      <div class="stat-icon"><i data-lucide="box" style="width: 18px; height: 18px;"></i></div>
+    </div>
+    <div class="stat-value"><%= stats.totalProducts %></div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="stat-label">Catégories</span>
+      <div class="stat-icon"><i data-lucide="folder" style="width: 18px; height: 18px;"></i></div>
+    </div>
+    <div class="stat-value"><%= stats.totalCategories %></div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="stat-label">Disponibles</span>
+      <div class="stat-icon" style="color: var(--success);"><i data-lucide="check-circle" style="width: 18px; height: 18px;"></i></div>
+    </div>
+    <div class="stat-value" style="color: var(--success);"><%= stats.totalAvailable %></div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="stat-label">En Rupture</span>
+      <div class="stat-icon" style="color: var(--danger);"><i data-lucide="alert-triangle" style="width: 18px; height: 18px;"></i></div>
+    </div>
+    <div class="stat-value" style="color: var(--danger);"><%= stats.totalOutOfStock %></div>
+  </div>
+</div>
+
+<!-- Grille de raccourcis -->
+<div style="display: grid; grid-template-columns: 1fr; gap: 24px;">
+  
+  <!-- Section 1 : Produits récemment ajoutés -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Produits récemment ajoutés</h2>
+      <a href="/admin/products" style="font-size: 13px; font-weight: 600;">Voir tout le catalogue &rarr;</a>
+    </div>
+
+    <% if (recentProducts.length === 0) { %>
+      <div style="text-align: center; padding: 32px 16px; color: var(--text-secondary);">
+        <i data-lucide="package-open" style="width: 36px; height: 36px; stroke-width: 1.5; margin-bottom: 8px;"></i>
+        <p>Aucun produit dans le catalogue pour le moment.</p>
+        <a href="/admin/products/new" class="btn btn-primary btn-sm" style="margin-top: 12px;">Créer le premier produit</a>
+      </div>
+    <% } else { %>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Catégorie</th>
+              <th>Prix</th>
+              <th>Stock</th>
+              <th>Date</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% recentProducts.forEach(product => { %>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-secondary); overflow: hidden; display: flex; align-items: center; justify-content: center; shrink: 0;">
+                      <% if (product.photos && product.photos.length > 0) { %>
+                        <img src="<%= product.photos[0].url %>" alt="<%= product.name %>" style="width: 100%; height: 100%; object-fit: contain;">
+                      <% } else { %>
+                        <i data-lucide="image" style="width: 18px; height: 18px; color: var(--text-muted);"></i>
+                      <% } %>
+                    </div>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);"><%= product.name %></div>
+                      <div style="font-size: 12px; color: var(--text-secondary);">Réf : <%= product.reference %></div>
+                    </div>
+                  </div>
+                </td>
+                <td><%= product.category ? product.category.name : '-' %></td>
+                <td>
+                  <div style="font-weight: 600;"><%= formatFCFA(product.promoPrice || product.price) %></div>
+                  <% if (product.promoPrice) { %>
+                    <div style="font-size: 11px; text-decoration: line-through; color: var(--text-muted);"><%= formatFCFA(product.price) %></div>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (product.stock > 0) { %>
+                    <span class="badge badge-success"><%= product.stock %> en stock</span>
+                  <% } else { %>
+                    <span class="badge badge-danger">Rupture</span>
+                  <% } %>
+                </td>
+                <td style="color: var(--text-secondary); font-size: 12px;"><%= formatDate(product.createdAt) %></td>
+                <td style="text-align: right;">
+                  <a href="/admin/products/<%= product.id %>/edit" class="btn btn-secondary btn-sm">Modifier</a>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Section 2 : Colonnes Alertes ruptures & Produits mis en avant -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+    
+    <!-- Produits en rupture -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title" style="display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="alert-circle" style="color: var(--danger); width: 18px; height: 18px;"></i>
+          <span>Produits en rupture (<%= stats.totalOutOfStock %>)</span>
+        </h2>
+        <a href="/admin/products?status=out_of_stock" style="font-size: 12px;">Voir tout</a>
+      </div>
+
+      <% if (outOfStockProducts.length === 0) { %>
+        <p style="color: var(--text-secondary); font-size: 13px; text-align: center; padding: 16px;">
+          🎉 Aucune rupture de stock signalée.
+        </p>
+      <% } else { %>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <% outOfStockProducts.forEach(product => { %>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+              <div>
+                <div style="font-size: 13px; font-weight: 600;"><%= product.name %></div>
+                <div style="font-size: 11px; color: var(--text-secondary);">Réf : <%= product.reference %> · <%= formatFCFA(product.price) %></div>
+              </div>
+              <a href="/admin/products/<%= product.id %>/edit" class="btn btn-secondary btn-sm">Réapprovisionner</a>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Produits mis en avant -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title" style="display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="sparkles" style="color: var(--gq-purple); width: 18px; height: 18px;"></i>
+          <span>Mis en avant sur l'accueil</span>
+        </h2>
+        <a href="/admin/products?status=featured" style="font-size: 12px;">Voir tout</a>
+      </div>
+
+      <% if (featuredProducts.length === 0) { %>
+        <p style="color: var(--text-secondary); font-size: 13px; text-align: center; padding: 16px;">
+          Aucun produit n'est actuellement mis en avant.
+        </p>
+      <% } else { %>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <% featuredProducts.forEach(product => { %>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+              <div>
+                <div style="font-size: 13px; font-weight: 600;"><%= product.name %></div>
+                <div style="font-size: 11px; color: var(--text-secondary);"><%= product.category ? product.category.name : '' %> · <%= formatFCFA(product.price) %></div>
+              </div>
+              <a href="/admin/products/<%= product.id %>/edit" class="btn btn-secondary btn-sm">Gérer</a>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+
+</div>
+
+<%- include('../partials/footer') %>

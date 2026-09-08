@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="/images/logo-gq-store.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body style="background-color: var(--bg-secondary);">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <img src="/images/logo-gq-store.png" alt="GQ Store" class="login-logo">
+      
+      <h1 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Espace Administrateur</h1>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 24px;">Connectez-vous pour gérer votre catalogue</p>
+
+      <%- include('../partials/flash-messages') %>
+
+      <form action="/admin/login" method="POST" style="text-align: left;">
+        <div class="form-group">
+          <label for="email" class="form-label">Adresse email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-control" 
+            placeholder="admin@gqstore.com" 
+            required 
+            autofocus
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-control" 
+            placeholder="••••••••••••" 
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          <i data-lucide="lock" style="width: 18px; height: 18px;"></i>
+          <span>Se connecter</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<aside class="admin-sidebar">
+  <div class="sidebar-brand">
+    <img src="/images/logo-gq-store.png" alt="GQ Store" class="sidebar-logo">
+    <span class="sidebar-title-badge">Admin</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="/admin" class="nav-link <%= currentPath === '/admin' ? 'active' : '' %>">
+      <i data-lucide="layout-dashboard"></i>
+      <span>Tableau de bord</span>
+    </a>
+    <a href="/admin/products" class="nav-link <%= currentPath.startsWith('/admin/products') ? 'active' : '' %>">
+      <i data-lucide="box"></i>
+      <span>Produits</span>
+    </a>
+    <a href="/admin/categories" class="nav-link <%= currentPath.startsWith('/admin/categories') ? 'active' : '' %>">
+      <i data-lucide="folder"></i>
+      <span>Catégories</span>
+    </a>
+    <a href="/admin/brands" class="nav-link <%= currentPath.startsWith('/admin/brands') ? 'active' : '' %>">
+      <i data-lucide="tag"></i>
+      <span>Marques</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div style="display: flex; flex-direction: column;">
+      <span style="font-size: 13px; font-weight: 600;"><%= adminUser ? adminUser.name : 'GQ Store' %></span>
+      <span style="font-size: 11px; color: var(--text-secondary);"><%= adminUser ? adminUser.email : 'admin' %></span>
+    </div>
+    <a href="/admin/logout" class="btn btn-secondary btn-icon" title="Se déconnecter">
+      <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+    </a>
+  </div>
+</aside>

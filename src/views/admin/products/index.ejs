@@ -1,0 +1,198 @@
+<%- include('../../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Catalogue Produits</h1>
+    <p class="page-subtitle">Gérez vos articles, tarifs, caractéristiques et disponibilités</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/products/new" class="btn btn-primary">
+      <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+      <span>Ajouter un produit</span>
+    </a>
+  </div>
+</div>
+
+<!-- Filtres et Recherche -->
+<div class="card" style="padding: 16px;">
+  <form action="/admin/products" method="GET" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+    <div style="flex: 2; min-width: 200px;">
+      <input 
+        type="text" 
+        name="q" 
+        class="form-control" 
+        placeholder="Rechercher par nom, réf, marque..." 
+        value="<%= filters.q || '' %>"
+      >
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <select name="categoryId" class="form-control">
+        <option value="">Toutes les catégories</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.id %>" <%= filters.categoryId === cat.id ? 'selected' : '' %>>
+            <%= cat.name %>
+          </option>
+        <% }); %>
+      </select>
+    </div>
+
+    <div style="flex: 1; min-width: 150px;">
+      <select name="status" class="form-control">
+        <option value="">Tous les statuts</option>
+        <option value="available" <%= filters.status === 'available' ? 'selected' : '' %>>En stock</option>
+        <option value="out_of_stock" <%= filters.status === 'out_of_stock' ? 'selected' : '' %>>Rupture</option>
+        <option value="featured" <%= filters.status === 'featured' ? 'selected' : '' %>>Mis en avant</option>
+        <option value="hidden" <%= filters.status === 'hidden' ? 'selected' : '' %>>Masqués</option>
+      </select>
+    </div>
+
+    <div style="display: flex; gap: 8px;">
+      <button type="submit" class="btn btn-secondary">
+        <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+        <span>Filtrer</span>
+      </button>
+      <% if (filters.q || filters.categoryId || filters.status) { %>
+        <a href="/admin/products" class="btn btn-secondary btn-icon" title="Réinitialiser les filtres">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </a>
+      <% } %>
+    </div>
+  </form>
+</div>
+
+<!-- Liste des Produits -->
+<div class="card">
+  <% if (products.length === 0) { %>
+    <div style="text-align: center; padding: 48px 16px; color: var(--text-secondary);">
+      <i data-lucide="package-search" style="width: 44px; height: 44px; stroke-width: 1.5; margin-bottom: 10px;"></i>
+      <p style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Aucun produit trouvé</p>
+      <p style="font-size: 13px;">Essayez d'ajuster vos critères de recherche ou ajoutez un nouveau produit.</p>
+      <a href="/admin/products/new" class="btn btn-primary btn-sm" style="margin-top: 14px;">Créer un produit</a>
+    </div>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Article</th>
+            <th>Catégorie / Marque</th>
+            <th>Prix (FCFA)</th>
+            <th>Stock</th>
+            <th>État</th>
+            <th>Visibilité</th>
+            <th style="text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(product => { %>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-secondary); overflow: hidden; display: flex; align-items: center; justify-content: center; shrink: 0;">
+                    <% if (product.photos && product.photos.length > 0) { %>
+                      <img src="<%= product.photos[0].url %>" alt="<%= product.name %>" style="width: 100%; height: 100%; object-fit: contain;">
+                    <% } else { %>
+                      <i data-lucide="image" style="width: 20px; height: 20px; color: var(--text-muted);"></i>
+                    <% } %>
+                  </div>
+                  <div>
+                    <div style="font-weight: 600; color: var(--text-primary);">
+                      <%= product.name %>
+                      <% if (product.isFeatured) { %>
+                        <span class="badge badge-purple" style="font-size: 10px; margin-left: 6px;">★ Vedette</span>
+                      <% } %>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-secondary);">Réf : <span style="font-family: monospace;"><%= product.reference %></span></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 13px; font-weight: 500;"><%= product.category ? product.category.name : '-' %></div>
+                <div style="font-size: 12px; color: var(--text-secondary);"><%= product.brand ? product.brand.name : 'Sans marque' %></div>
+              </td>
+              <td>
+                <div style="font-weight: 600;"><%= formatFCFA(product.promoPrice || product.price) %></div>
+                <% if (product.promoPrice) { %>
+                  <div style="font-size: 11px; text-decoration: line-through; color: var(--text-muted);"><%= formatFCFA(product.price) %></div>
+                <% } %>
+              </td>
+              <td>
+                <% if (product.stock > 0) { %>
+                  <span class="badge badge-success"><%= product.stock %> dispo</span>
+                <% } else { %>
+                  <span class="badge badge-danger">Rupture</span>
+                <% } %>
+              </td>
+              <td>
+                <span class="badge badge-gray"><%= product.condition %></span>
+              </td>
+              <td>
+                <% if (product.isVisible) { %>
+                  <span class="badge badge-success">Publié</span>
+                <% } else { %>
+                  <span class="badge badge-gray">Masqué</span>
+                <% } %>
+              </td>
+              <td style="text-align: right;">
+                <div style="display: inline-flex; gap: 4px;">
+                  <!-- Modifier -->
+                  <a href="/admin/products/<%= product.id %>/edit" class="btn btn-secondary btn-icon btn-sm" title="Modifier">
+                    <i data-lucide="edit-3" style="width: 14px; height: 14px;"></i>
+                  </a>
+
+                  <!-- Dupliquer -->
+                  <form action="/admin/products/<%= product.id %>/duplicate" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-secondary btn-icon btn-sm" title="Dupliquer">
+                      <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+                    </button>
+                  </form>
+
+                  <!-- Visibilité Toggle -->
+                  <form action="/admin/products/<%= product.id %>/toggle-visibility" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-secondary btn-icon btn-sm" title="<%= product.isVisible ? 'Masquer' : 'Publier' %>">
+                      <i data-lucide="<%= product.isVisible ? 'eye-off' : 'eye' %>" style="width: 14px; height: 14px;"></i>
+                    </button>
+                  </form>
+
+                  <!-- Mettre en avant Toggle -->
+                  <form action="/admin/products/<%= product.id %>/toggle-featured" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-secondary btn-icon btn-sm" title="<%= product.isFeatured ? 'Retirer de la sélection' : 'Mettre en avant' %>" style="<%= product.isFeatured ? 'color: var(--gq-purple);' : '' %>">
+                      <i data-lucide="star" style="width: 14px; height: 14px;"></i>
+                    </button>
+                  </form>
+
+                  <!-- Supprimer -->
+                  <form action="/admin/products/<%= product.id %>/delete" method="POST" style="display: inline;" onsubmit="return confirm('Supprimer définitivement ce produit et ses photos ?');">
+                    <button type="submit" class="btn btn-danger btn-icon btn-sm" title="Supprimer">
+                      <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <% if (pagination.totalPages > 1) { %>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 4px 0; border-top: 1px solid var(--border-color); margin-top: 16px;">
+        <span style="font-size: 13px; color: var(--text-secondary);">
+          Page <%= pagination.currentPage %> sur <%= pagination.totalPages %> (<%= pagination.totalCount %> produits)
+        </span>
+        <div style="display: flex; gap: 8px;">
+          <% if (pagination.currentPage > 1) { %>
+            <a href="/admin/products?page=<%= pagination.currentPage - 1 %>&q=<%= filters.q || '' %>&categoryId=<%= filters.categoryId || '' %>&status=<%= filters.status || '' %>" class="btn btn-secondary btn-sm">Précédent</a>
+          <% } %>
+          <% if (pagination.currentPage < pagination.totalPages) { %>
+            <a href="/admin/products?page=<%= pagination.currentPage + 1 %>&q=<%= filters.q || '' %>&categoryId=<%= filters.categoryId || '' %>&status=<%= filters.status || '' %>" class="btn btn-secondary btn-sm">Suivant</a>
+          <% } %>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+</div>
+
+<%- include('../../partials/footer') %>

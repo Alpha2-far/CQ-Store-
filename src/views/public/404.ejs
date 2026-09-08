@@ -1,0 +1,63 @@
+<%- include('../partials/public-header') %>
+
+<div class="container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 60px 16px;">
+  <div style="max-width: 540px; width: 100%; text-align: center; background: var(--bg-white, #ffffff); border-radius: 16px; border: 1px solid var(--border-color, #e5e7eb); padding: 40px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+    
+    <!-- Badge Erreur 404 -->
+    <div style="display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: rgba(67, 26, 105, 0.08); color: var(--gq-purple, #431A69); margin-bottom: 20px;">
+      <i data-lucide="compass" style="width: 36px; height: 36px;"></i>
+    </div>
+
+    <span style="display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gq-purple, #431A69); margin-bottom: 8px;">
+      Erreur 404
+    </span>
+
+    <h1 style="font-size: 26px; font-weight: 800; color: var(--text-primary, #111827); margin-bottom: 12px; line-height: 1.3;">
+      Page introuvable
+    </h1>
+
+    <p style="font-size: 15px; color: var(--text-secondary, #6b7280); line-height: 1.6; margin-bottom: 28px;">
+      Le produit ou la page que vous recherchez n'existe pas, a été déplacé ou est temporairement retiré de notre inventaire.
+    </p>
+
+    <!-- Barre de recherche rapide -->
+    <form action="/catalogue" method="GET" style="margin-bottom: 24px; display: flex; gap: 8px; justify-content: center;">
+      <div style="position: relative; flex: 1; max-width: 360px;">
+        <input 
+          type="search" 
+          name="q" 
+          placeholder="Rechercher un autre produit..." 
+          style="width: 100%; height: 46px; padding: 0 16px 0 40px; border-radius: 8px; border: 1px solid var(--border-color, #d1d5db); font-size: 14px; background: #fafafa;"
+        >
+        <i data-lucide="search" style="position: absolute; left: 14px; top: 15px; width: 16px; height: 16px; color: #9ca3af;"></i>
+      </div>
+      <button 
+        type="submit" 
+        style="height: 46px; padding: 0 18px; border-radius: 8px; background: var(--gq-purple, #431A69); color: white; border: none; font-weight: 600; font-size: 14px; cursor: pointer;"
+      >
+        Trouver
+      </button>
+    </form>
+
+    <!-- Boutons d'action -->
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+      <a 
+        href="/catalogue" 
+        style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; min-height: 44px; border-radius: 8px; background: var(--gq-purple, #431A69); color: white; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.2s;"
+      >
+        <i data-lucide="grid" style="width: 16px; height: 16px;"></i>
+        <span>Explorer tout le catalogue</span>
+      </a>
+      <a 
+        href="/" 
+        style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; min-height: 44px; border-radius: 8px; background: var(--bg-neutral, #f3f4f6); color: var(--text-primary, #374151); text-decoration: none; font-weight: 600; font-size: 14px;"
+      >
+        <i data-lucide="home" style="width: 16px; height: 16px;"></i>
+        <span>Retour à l'accueil</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<%- include('../partials/public-footer') %>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Titre & Meta Description -->
+  <% 
+    const metaTitle = (typeof seo !== 'undefined' && seo.title) ? seo.title : (typeof title !== 'undefined' ? title : 'GQ Store — Catalogue Informatique Premium');
+    const metaDesc = (typeof seo !== 'undefined' && seo.description) ? seo.description : 'Matériel informatique sélectionné, contrôlé et disponible au Bénin.';
+    const canonical = (typeof seo !== 'undefined' && seo.canonicalUrl) ? seo.canonicalUrl : '';
+    const ogData = (typeof seo !== 'undefined' && seo.og) ? seo.og : {};
+  %>
+  <title><%= metaTitle %></title>
+  <meta name="description" content="<%= metaDesc %>">
+  
+  <% if (canonical) { %>
+  <link rel="canonical" href="<%= canonical %>">
+  <% } %>
+
+  <% if (typeof seo !== 'undefined' && seo.noindex) { %>
+  <meta name="robots" content="noindex, nofollow">
+  <% } else { %>
+  <meta name="robots" content="index, follow">
+  <% } %>
+
+  <!-- Open Graph / Réseaux Sociaux -->
+  <meta property="og:site_name" content="GQ Store">
+  <meta property="og:type" content="<%= ogData.type || 'website' %>">
+  <meta property="og:title" content="<%= ogData.title || metaTitle %>">
+  <meta property="og:description" content="<%= ogData.description || metaDesc %>">
+  <% if (canonical) { %>
+  <meta property="og:url" content="<%= canonical %>">
+  <% } %>
+  <meta property="og:image" content="<%= ogData.image || '/images/logo-gq-store.png' %>">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= ogData.title || metaTitle %>">
+  <meta name="twitter:description" content="<%= ogData.description || metaDesc %>">
+  <meta name="twitter:image" content="<%= ogData.image || '/images/logo-gq-store.png' %>">
+
+  <!-- Données structurées Schema.org JSON-LD -->
+  <% if (typeof seo !== 'undefined' && seo.jsonLd) { %>
+    <% const schemaList = Array.isArray(seo.jsonLd) ? seo.jsonLd : [seo.jsonLd]; %>
+    <% schemaList.forEach(schema => { %>
+  <script type="application/ld+json">
+<%- JSON.stringify(schema, null, 2) %>
+  </script>
+    <% }); %>
+  <% } %>
+
+  <link rel="icon" type="image/png" href="/images/logo-gq-store.png">
+  <link rel="stylesheet" href="/css/public.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Barre d'annonce supérieure -->
+  <div class="store-announcement" role="note">
+    <div class="container announcement-inner">
+      <div class="announcement-badge">
+        <i data-lucide="shield-check"></i>
+        <span>Matériel contrôlé · Garantie incluse</span>
+      </div>
+      <div class="announcement-location">
+        <i data-lucide="map-pin"></i>
+        <span>Calavi, Bénin · Livraison nationale</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="/" class="header-brand" aria-label="GQ Store Accueil">
+          <img src="/images/logo-gq-store.png" alt="GQ Store" class="site-logo">
+        </a>
+        <nav class="header-nav" aria-label="Navigation principale">
+          <a href="/" class="header-nav-link <%= typeof title !== 'undefined' && title.includes('Consommables & Matériel') ? 'active' : '' %>">Accueil</a>
+          <a href="/catalogue" class="header-nav-link <%= typeof title !== 'undefined' && title.includes('Catalogue') && (!filters || !filters.condition) ? 'active' : '' %>">Catalogue</a>
+          <a href="/catalogue?condition=Neuf" class="header-nav-link <%= typeof filters !== 'undefined' && filters.condition === 'Neuf' ? 'active' : '' %>">Neuf</a>
+          <a href="/catalogue?condition=Reconditionné" class="header-nav-link <%= typeof filters !== 'undefined' && filters.condition === 'Reconditionné' ? 'active' : '' %>">Reconditionné</a>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <form action="/catalogue" method="GET" class="header-search" role="search">
+          <label class="sr-only" for="headerSearch">Rechercher dans le catalogue</label>
+          <div class="search-input-wrapper">
+            <i data-lucide="search" class="search-icon"></i>
+            <input id="headerSearch" type="search" name="q" class="search-input" placeholder="Rechercher un produit..." value="<%= typeof filters !== 'undefined' && filters.q ? filters.q : '' %>" autocomplete="off">
+          </div>
+        </form>
+
+        <a href="/panier" class="cart-btn-link" aria-label="Voir mon panier">
+          <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-label">Panier</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+
+        <button type="button" class="mobile-menu-btn" id="mobileNavBtn" aria-label="Ouvrir le menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu tiroir mobile -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-drawer-content">
+      <div class="drawer-heading">
+        <a href="/" class="drawer-brand">
+          <img src="/images/logo-gq-store.png" alt="GQ Store" class="drawer-logo">
+        </a>
+        <button type="button" class="drawer-close-btn" id="closeMobileNav" aria-label="Fermer le menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form action="/catalogue" method="GET" class="drawer-search" role="search">
+        <label class="sr-only" for="drawerSearch">Rechercher un produit</label>
+        <div class="search-input-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input id="drawerSearch" type="search" name="q" class="search-input" placeholder="Rechercher un produit...">
+        </div>
+      </form>
+
+      <nav class="mobile-nav-links">
+        <a href="/" class="mobile-nav-item"><i data-lucide="home"></i> Accueil</a>
+        <a href="/catalogue" class="mobile-nav-item"><i data-lucide="layout-grid"></i> Catalogue complet</a>
+        <a href="/catalogue?condition=Neuf" class="mobile-nav-item"><i data-lucide="sparkles"></i> Matériel neuf</a>
+        <a href="/catalogue?condition=Reconditionné" class="mobile-nav-item"><i data-lucide="refresh-cw"></i> Reconditionné certifié</a>
+        <a href="/panier" class="mobile-nav-item mobile-nav-cart"><i data-lucide="shopping-bag"></i> Mon panier</a>
+      </nav>
+
+      <div class="drawer-footer">
+        <div class="drawer-location">
+          <i data-lucide="map-pin"></i>
+          <div>
+            <strong>GQ Store Calavi</strong>
+            <p>Bénin · Lun — Sam : 09h30 — 20h30</p>
+          </div>
+        </div>
+        <a href="https://wa.me/22998471366" target="_blank" rel="noopener noreferrer" class="drawer-wa-btn">
+          <i data-lucide="message-circle"></i> Commander sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+  <main>

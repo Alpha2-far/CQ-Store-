@@ -1,0 +1,290 @@
+<%- include('../partials/public-header') %>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-shell">
+    <div class="hero-copy">
+      <div class="hero-badge"><i data-lucide="shield-check"></i><span>Matériel contrôlé & garanti</span></div>
+      <h1 class="hero-title">La technologie qui accompagne vos ambitions.</h1>
+      <p class="hero-subtitle">Ordinateurs, accessoires et consommables soigneusement sélectionnés pour les professionnels, étudiants et entreprises du Bénin.</p>
+      <div class="hero-actions">
+        <a href="/catalogue" class="btn btn-primary"><span>Explorer le catalogue</span><i data-lucide="arrow-up-right"></i></a>
+        <a href="/catalogue/ordinateurs-portables" class="hero-text-link">Voir les PC portables <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="hero-showcase">
+      <% const heroProduct = featuredProducts && featuredProducts[0]; %>
+      <% if (heroProduct) { %>
+        <a href="/produits/<%= heroProduct.slug %>" class="hero-product-card" aria-label="Découvrir <%= heroProduct.name %>">
+          <div class="hero-product-label"><span>À la une</span><i data-lucide="arrow-up-right"></i></div>
+          <div class="hero-product-image">
+            <% if (heroProduct.photos && heroProduct.photos.length > 0) { %><img src="<%= heroProduct.photos[0].url %>" alt="<%= heroProduct.photos[0].altText || heroProduct.name %>"><% } else { %><i data-lucide="laptop"></i><% } %>
+          </div>
+          <div class="hero-product-details"><span><%= heroProduct.brand ? heroProduct.brand.name : 'GQ Store' %></span><strong><%= heroProduct.name %></strong><em><%= formatFCFA(heroProduct.promoPrice && heroProduct.promoPrice < heroProduct.price ? heroProduct.promoPrice : heroProduct.price) %></em></div>
+        </a>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<!-- Barre de Réassurance -->
+<section class="reassurance-bar">
+  <div class="container reassurance-grid">
+    <div class="reassurance-item">
+      <div class="reassurance-icon">
+        <i data-lucide="check-circle"></i>
+      </div>
+      <div>
+        <h3 class="reassurance-title">Qualité Contrôlée</h3>
+        <p class="reassurance-desc">Tous nos appareils sont minutieusement testés et audités.</p>
+      </div>
+    </div>
+
+    <div class="reassurance-item">
+      <div class="reassurance-icon">
+        <i data-lucide="shield"></i>
+      </div>
+      <div>
+        <h3 class="reassurance-title">Garantie Incluse</h3>
+        <p class="reassurance-desc">Achetez en toute sérénité avec notre garantie technique.</p>
+      </div>
+    </div>
+
+    <div class="reassurance-item">
+      <div class="reassurance-icon">
+        <i data-lucide="truck"></i>
+      </div>
+      <div>
+        <h3 class="reassurance-title">Livraison Rapide</h3>
+        <p class="reassurance-desc">Livraison soignée à Cotonou, Calavi et dans tout le Bénin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Catégories Phares -->
+<% if (categories && categories.length > 0) { %>
+<section class="home-categories">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Nos Catégories</h2>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">Parcourez notre matériel par univers spécialisé</p>
+      </div>
+      <a href="/catalogue" class="btn btn-secondary btn-sm">Tout afficher &rarr;</a>
+    </div>
+
+    <div class="category-grid">
+      <% categories.forEach(cat => { %>
+        <a href="/catalogue/<%= cat.slug %>" class="category-card">
+          <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--gq-purple-subtle); color: var(--gq-purple); display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
+            <i data-lucide="folder"></i>
+          </div>
+          <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;"><%= cat.name %></h3>
+          <span style="font-size: 12px; color: var(--text-muted);"><%= cat._count.products %> produit<%= cat._count.products > 1 ? 's' : '' %></span>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- Produits Mis en Avant (Featured) -->
+<% if (featuredProducts && featuredProducts.length > 0) { %>
+<section class="home-products-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gq-purple); margin-bottom: 4px;">
+          <i data-lucide="star" style="width: 12px; height: 12px;"></i>
+          <span>Sélection Premium</span>
+        </div>
+        <h2 class="section-title">Produits à la Une</h2>
+      </div>
+      <a href="/catalogue" class="btn btn-secondary btn-sm">Voir tout</a>
+    </div>
+
+    <div class="products-grid">
+      <% featuredProducts.forEach(prod => { %>
+        <div class="product-card">
+          <a href="/produits/<%= prod.slug %>" class="product-card-image-box" aria-label="<%= prod.name %>">
+            <% if (prod.photos && prod.photos.length > 0) { %>
+              <img src="<%= prod.photos[0].url %>" alt="<%= prod.photos[0].alt || prod.name %>" class="product-card-image" loading="lazy" decoding="async">
+            <% } else { %>
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); gap: 6px;">
+                <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+                <span style="font-size: 11px;">GQ Store</span>
+              </div>
+            <% } %>
+
+            <div class="card-badge-top">
+              <% if (prod.stock > 0) { %>
+                <span class="badge-status badge-available">Disponible</span>
+              <% } else { %>
+                <span class="badge-status badge-out-of-stock">Rupture de stock</span>
+              <% } %>
+            </div>
+          </a>
+
+          <div class="product-card-body">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span class="product-card-brand"><%= prod.brand ? prod.brand.name : 'GQ Store' %></span>
+              <span class="badge-condition"><%= prod.condition %></span>
+            </div>
+
+            <a href="/produits/<%= prod.slug %>" class="product-card-title" title="<%= prod.name %>">
+              <%= prod.name %>
+            </a>
+
+            <div class="product-card-footer">
+              <div>
+                <% if (prod.promoPrice && prod.promoPrice < prod.price) { %>
+                  <span class="product-card-price"><%= formatFCFA(prod.promoPrice) %></span>
+                  <span class="product-card-promo-old"><%= formatFCFA(prod.price) %></span>
+                <% } else { %>
+                  <span class="product-card-price"><%= formatFCFA(prod.price) %></span>
+                <% } %>
+              </div>
+
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <% if (prod.stock > 0) { %>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary btn-sm" 
+                    style="padding: 6px 10px;" 
+                    title="Ajouter au panier" 
+                    aria-label="Ajouter <%= prod.name %> au panier"
+                    data-action="add-to-cart"
+                    data-product-id="<%= prod.id %>"
+                    data-product-name="<%= prod.name %>"
+                    data-product-slug="<%= prod.slug %>"
+                    data-product-ref="<%= prod.reference %>"
+                    data-product-price="<%= (prod.promoPrice && prod.promoPrice < prod.price) ? prod.promoPrice : prod.price %>"
+                    data-product-photo="<%= (prod.photos && prod.photos.length > 0) ? prod.photos[0].url : '' %>"
+                    data-product-stock="<%= prod.stock %>"
+                  >
+                    <i data-lucide="shopping-bag" style="width: 14px; height: 14px;"></i>
+                  </button>
+                <% } %>
+
+                <a href="/produits/<%= prod.slug %>" class="btn btn-outline-purple btn-sm" aria-label="Voir <%= prod.name %>">
+                  <span>Détails</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- Nouveaux Arrivages -->
+<% if (recentProducts && recentProducts.length > 0) { %>
+<section class="home-products-section home-arrivals-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gq-purple); margin-bottom: 4px;">
+          <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+          <span>Fraîchement Arrivés</span>
+        </div>
+        <h2 class="section-title">Derniers Arrivages</h2>
+      </div>
+      <a href="/catalogue?sort=recent" class="btn btn-secondary btn-sm">Découvrir</a>
+    </div>
+
+    <div class="products-grid">
+      <% recentProducts.forEach(prod => { %>
+        <div class="product-card">
+          <a href="/produits/<%= prod.slug %>" class="product-card-image-box" aria-label="<%= prod.name %>">
+            <% if (prod.photos && prod.photos.length > 0) { %>
+              <img src="<%= prod.photos[0].url %>" alt="<%= prod.photos[0].alt || prod.name %>" class="product-card-image" loading="lazy" decoding="async">
+            <% } else { %>
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); gap: 6px;">
+                <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+                <span style="font-size: 11px;">GQ Store</span>
+              </div>
+            <% } %>
+
+            <div class="card-badge-top">
+              <% if (prod.stock > 0) { %>
+                <span class="badge-status badge-available">Disponible</span>
+              <% } else { %>
+                <span class="badge-status badge-out-of-stock">Rupture de stock</span>
+              <% } %>
+            </div>
+          </a>
+
+          <div class="product-card-body">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span class="product-card-brand"><%= prod.brand ? prod.brand.name : 'GQ Store' %></span>
+              <span class="badge-condition"><%= prod.condition %></span>
+            </div>
+
+            <a href="/produits/<%= prod.slug %>" class="product-card-title" title="<%= prod.name %>">
+              <%= prod.name %>
+            </a>
+
+            <div class="product-card-footer">
+              <div>
+                <% if (prod.promoPrice && prod.promoPrice < prod.price) { %>
+                  <span class="product-card-price"><%= formatFCFA(prod.promoPrice) %></span>
+                  <span class="product-card-promo-old"><%= formatFCFA(prod.price) %></span>
+                <% } else { %>
+                  <span class="product-card-price"><%= formatFCFA(prod.price) %></span>
+                <% } %>
+              </div>
+
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <% if (prod.stock > 0) { %>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary btn-sm" 
+                    style="padding: 6px 10px;" 
+                    title="Ajouter au panier" 
+                    aria-label="Ajouter <%= prod.name %> au panier"
+                    data-action="add-to-cart"
+                    data-product-id="<%= prod.id %>"
+                    data-product-name="<%= prod.name %>"
+                    data-product-slug="<%= prod.slug %>"
+                    data-product-ref="<%= prod.reference %>"
+                    data-product-price="<%= (prod.promoPrice && prod.promoPrice < prod.price) ? prod.promoPrice : prod.price %>"
+                    data-product-photo="<%= (prod.photos && prod.photos.length > 0) ? prod.photos[0].url : '' %>"
+                    data-product-stock="<%= prod.stock %>"
+                  >
+                    <i data-lucide="shopping-bag" style="width: 14px; height: 14px;"></i>
+                  </button>
+                <% } %>
+
+                <a href="/produits/<%= prod.slug %>" class="btn btn-outline-purple btn-sm" aria-label="Voir <%= prod.name %>">
+                  <span>Détails</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- Bannière Call To Action Catalogue -->
+<section class="catalogue-cta">
+  <div class="container catalogue-cta-inner">
+    <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 12px; color: #FFFFFF;">Vous cherchez une configuration spécifique ?</h2>
+    <p style="font-size: 15px; opacity: 0.9; line-height: 1.6; margin-bottom: 24px;">
+      Explorez l'intégralité de nos stocks avec nos filtres multicritères : marque, plage de prix, état neuf ou reconditionné.
+    </p>
+    <a href="/catalogue" class="btn" style="background: #FFFFFF; color: var(--gq-purple); font-weight: 700;">
+      <i data-lucide="search"></i>
+      <span>Accéder au catalogue complet</span>
+    </a>
+  </div>
+</section>
+
+<%- include('../partials/public-footer') %>

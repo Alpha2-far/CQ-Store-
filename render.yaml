@@ -1,0 +1,44 @@
+# Manifeste Render Blueprint pour GQ Store
+# Déploiement automatique : Service Web Node.js + Base de données PostgreSQL
+
+databases:
+  - name: gq-store-db
+    databaseName: gq_store
+    user: gq_admin
+    plan: free
+    region: frankfurt
+
+services:
+  - type: web
+    name: gq-store
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install && npm run build
+    startCommand: npx prisma db push && npm start
+    healthCheckPath: /robots.txt
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gq-store-db
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: WHATSAPP_NUMBER
+        value: "22998471366"
+      - key: APP_URL
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: ADMIN_NAME
+        value: "GQ Store Admin"
+      - key: ADMIN_EMAIL
+        value: "admin@gqstore.com"
+      - key: ADMIN_PASSWORD
+        sync: false

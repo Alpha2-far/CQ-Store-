@@ -5,6 +5,8 @@ Catalogue informatique premium avec commande via WhatsApp. Site public + back-of
 - Stack : Node.js + Express, pages HTML rendues côté serveur, CSS/JS vanilla, PostgreSQL via Prisma, images sur Cloudinary, hébergement Render.
 - Identité : violet GQ `#431A69` en signature sur fond blanc (80–90 % blanc/neutre, 10–20 % violet), argenté en détail. Logo source : `assets/logo-gq-store.png`.
 - Le site ne prend aucun paiement : la commande se conclut sur WhatsApp.
+- **Documentation Context7 obligatoire** : Avant d'écrire ou de modifier du code impliquant des frameworks ou bibliothèques externes, tu DOIS obligatoirement interroger le serveur MCP Context7 (`resolve-library-id` puis `query-docs`) afin de t'appuyer sur la documentation officielle en temps réel.
+- **Graphe de connaissances Graphify obligatoire** : Sur tout projet de code, Graphify ([Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify.git)) doit être initialisé (`graphify update .`). Pour toute requête, compréhension ou recherche d'architecture, tu DOIS obligatoirement interroger le graphe (`graphify query "<question>"` ou outils de graphe). Le graphe doit être recalculé et tenu à jour après chaque modification de code.
 
 ## `_build_plan/`
 

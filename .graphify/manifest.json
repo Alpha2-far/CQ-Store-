@@ -1,0 +1,278 @@
+{
+  "AGENTS.md": {
+    "mtime": 1788859452452.2012,
+    "hash": "a710d828437b6369eee292b37c6319e8"
+  },
+  "_build_plan/milestones/1-fondations-admin/prompt.md": {
+    "mtime": 1788857540694.37,
+    "hash": "010f865db0f22cbb91c6255a01f6ae3f"
+  },
+  "_build_plan/milestones/2-site-public/prompt.md": {
+    "mtime": 1788857540695.1384,
+    "hash": "48053319f9f7da24b74406d1afa556f2"
+  },
+  "_build_plan/milestones/3-panier-whatsapp/prompt.md": {
+    "mtime": 1788857540695.6523,
+    "hash": "cb5b54c4aef9783335eb580c0a5ff6c2"
+  },
+  "_build_plan/milestones/4-seo/prompt.md": {
+    "mtime": 1788857540696.2964,
+    "hash": "64526d0f8ea7a14255329abee800b4f5"
+  },
+  "_build_plan/milestones/5-finition-deploiement/prompt.md": {
+    "mtime": 1788857540696.7383,
+    "hash": "6703f6e5a6ee326a3f6918fcc66fa2bd"
+  },
+  "_build_plan/prd.html": {
+    "mtime": 1788857540697.4968,
+    "hash": "101f6ebec096319b1623bc8360058a18"
+  },
+  "assets/logo-gq-store.png": {
+    "mtime": 1788857540701.3809,
+    "hash": "b64db8a25806bb98c9a9d2cc1a2b1dfa"
+  },
+  "prisma/migrations/20260908090027_init_milestone_1/migration.sql": {
+    "mtime": 1788858027201.0295,
+    "hash": "85e318905c675c103dfc41c499d0fb36"
+  },
+  "prisma/seed.js": {
+    "mtime": 1788860949948.1675,
+    "hash": "ee28b5386bef367bed801c7b64bcd9b6"
+  },
+  "public/js/admin.js": {
+    "mtime": 1788858318811.9253,
+    "hash": "46f05b3bc956ee5cd1adbc602e562367"
+  },
+  "public/js/product-form.js": {
+    "mtime": 1788858326768.3882,
+    "hash": "5ba8bf98441ddf351626c1db3effb816"
+  },
+  "src/app.js": {
+    "mtime": 1788877958741.115,
+    "hash": "513437082c9e70be712ad439638d67fb"
+  },
+  "src/config/cloudinary.js": {
+    "mtime": 1788876135011.012,
+    "hash": "c56427fc19319b8fd8cfc47170eb9d82"
+  },
+  "src/config/prisma.js": {
+    "mtime": 1788857983842.2004,
+    "hash": "47eecbceab78a701c7c74a440e63a92d"
+  },
+  "src/controllers/auth.controller.js": {
+    "mtime": 1788858088439.7493,
+    "hash": "931df50fa0c941ac17ab4a74234f5860"
+  },
+  "src/controllers/brand.controller.js": {
+    "mtime": 1788858115570.683,
+    "hash": "bca0ecefd63c8a15028313d496660ad8"
+  },
+  "src/controllers/category.controller.js": {
+    "mtime": 1788858107740.2805,
+    "hash": "ba9ead85986f1c6f78eed8560d555327"
+  },
+  "src/controllers/dashboard.controller.js": {
+    "mtime": 1788858097789.8076,
+    "hash": "f9f9322bec4619ed707079083a0e4f1f"
+  },
+  "src/controllers/product.controller.js": {
+    "mtime": 1788858133307.786,
+    "hash": "f4c8ec0a08511fc7a42b68393c537dd6"
+  },
+  "src/middlewares/auth.js": {
+    "mtime": 1788858072947.0479,
+    "hash": "fe9d3980b55cf7e305df6519a5836279"
+  },
+  "src/middlewares/error.js": {
+    "mtime": 1788877912606.054,
+    "hash": "9dd97efd4d910cf9bdbdbde3f34fd841"
+  },
+  "src/middlewares/upload.js": {
+    "mtime": 1788858079684.8025,
+    "hash": "38c3d5630e5707f181292161376d389b"
+  },
+  "src/routes/admin.routes.js": {
+    "mtime": 1788858269964.581,
+    "hash": "46b694f6441b4ef9741fd9c92830e965"
+  },
+  "src/routes/auth.routes.js": {
+    "mtime": 1788877939324.9,
+    "hash": "3816a3db189f9bf3cb576fe308685405"
+  },
+  "src/routes/brand.routes.js": {
+    "mtime": 1788858256120.068,
+    "hash": "32a39e26a6a7d5c75b97b79dd2ecb98b"
+  },
+  "src/routes/category.routes.js": {
+    "mtime": 1788858142966.4592,
+    "hash": "296ef76fcc6344769bc3699fdfad9296"
+  },
+  "src/routes/product.routes.js": {
+    "mtime": 1788858261570.0361,
+    "hash": "683348d3d842383c897ab3171bea613d"
+  },
+  "src/server.js": {
+    "mtime": 1788858293179.841,
+    "hash": "ad8223b85812f80fa6ecf70558353499"
+  },
+  "src/utils/formatters.js": {
+    "mtime": 1788858031758.0022,
+    "hash": "0910f7e700ca92001abeb04132eab542"
+  },
+  "src/utils/slugify.js": {
+    "mtime": 1788858011956.609,
+    "hash": "946b138fa5852f1ab18fb3b6233b0c9f"
+  },
+  "src/views/admin/brands/form.ejs": {
+    "mtime": 1788860688087.779,
+    "hash": "f0c47866096548701d89a0fca12783e7"
+  },
+  "src/views/admin/brands/index.ejs": {
+    "mtime": 1788860658705.4514,
+    "hash": "1e618a8899e9b39639a9de0cb44704e0"
+  },
+  "src/views/admin/categories/form.ejs": {
+    "mtime": 1788860632325.358,
+    "hash": "d91c81f9163d936c548c3b63f38d8c85"
+  },
+  "src/views/admin/categories/index.ejs": {
+    "mtime": 1788860603437.075,
+    "hash": "12750536303201ee60331cab025f5545"
+  },
+  "src/views/admin/dashboard.ejs": {
+    "mtime": 1788858385743.6062,
+    "hash": "a98e873f76caa8a2f84006e1b0353ff8"
+  },
+  "src/views/admin/login.ejs": {
+    "mtime": 1788858374860.4841,
+    "hash": "6883413d931c29257651dbbd2622ac9a"
+  },
+  "src/views/admin/products/form.ejs": {
+    "mtime": 1788860564614.4958,
+    "hash": "f6fb431fb6e107394e16b3f4ec08177e"
+  },
+  "src/views/admin/products/index.ejs": {
+    "mtime": 1788860508422.5854,
+    "hash": "e4d37c27056ece16c57f920d86ef5e4c"
+  },
+  "src/views/partials/admin-header.ejs": {
+    "mtime": 1788858351101.6172,
+    "hash": "65c2dcadbb8b594ceba84e0fd5bc26c6"
+  },
+  "src/views/partials/admin-sidebar.ejs": {
+    "mtime": 1788858344594.8157,
+    "hash": "bfa89fa46cf1cbb78d6fdb2a509e536c"
+  },
+  "src/views/partials/flash-messages.ejs": {
+    "mtime": 1788858332937.2969,
+    "hash": "1290b55128eb78ac1b1b701569fc7161"
+  },
+  "src/views/partials/footer.ejs": {
+    "mtime": 1788858366908.1135,
+    "hash": "a2a6815791c8aeb77579aef3e0ecc79a"
+  },
+  "src/views/partials/header.ejs": {
+    "mtime": 1788858359198.7502,
+    "hash": "1f8daa6fb67b00d46adf563ef10a1bc7"
+  },
+  "test/app.test.js": {
+    "mtime": 1788876608020.8904,
+    "hash": "c4dcdd042142b039a307110b9622cba6"
+  },
+  "_build_plan/milestones/1-fondations-admin/milestone-log.md": {
+    "mtime": 1788859018572.5212,
+    "hash": "aa58a39f4a72cbd9ca4339c233d9a585"
+  },
+  "public/images/logo-gq-store.png": {
+    "mtime": 1788864794529.141,
+    "hash": "018170d4674877b3099a0df3897815b0"
+  },
+  "public/js/public.js": {
+    "mtime": 1788875651059.3875,
+    "hash": "194389e248960348fd1751f752992974"
+  },
+  "src/controllers/public.controller.js": {
+    "mtime": 1788877448273.5579,
+    "hash": "e0afc459bf065436432459b4f6a9a7df"
+  },
+  "src/routes/public.routes.js": {
+    "mtime": 1788877351869.6028,
+    "hash": "f3493ae24499701b08a65627185e0e5a"
+  },
+  "src/views/partials/public-footer.ejs": {
+    "mtime": 1788864354449.71,
+    "hash": "dc2b198ddb8646d14f7b04db8c0b3e50"
+  },
+  "src/views/partials/public-header.ejs": {
+    "mtime": 1788877373099.8967,
+    "hash": "de63807ceef9a70cd8d86fe5a9099d6b"
+  },
+  "src/views/public/catalog.ejs": {
+    "mtime": 1788878015031.108,
+    "hash": "960a31e0414619bf6e6dfb4d53dd623e"
+  },
+  "src/views/public/home.ejs": {
+    "mtime": 1788877989883.4558,
+    "hash": "753e1824f980b17083c03017773fa046"
+  },
+  "src/views/public/product.ejs": {
+    "mtime": 1788878057743.4375,
+    "hash": "17d6d526ac90eca5eecefda3f9a2b982"
+  },
+  "test/public.test.js": {
+    "mtime": 1788860461820.8848,
+    "hash": "67313510443715b71d52bcdd48fb9ccb"
+  },
+  "src/views/public/cart.ejs": {
+    "mtime": 1788861840984.159,
+    "hash": "552e07921d154b6f0aae664e7bf70bc2"
+  },
+  "test/cart.test.js": {
+    "mtime": 1788863110439.271,
+    "hash": "085458da902c746962d2a4f539598658"
+  },
+  "_build_plan/milestones/2-site-public/milestone-log.md": {
+    "mtime": 1788861159166.7898,
+    "hash": "21ba3d04a10dce998b93af1cde5dc00d"
+  },
+  "_build_plan/milestones/3-panier-whatsapp/milestone-log.md": {
+    "mtime": 1788863176261.0579,
+    "hash": "0e16687b805607fec7d9dfd5869ba56a"
+  },
+  "image.png": {
+    "mtime": 1788864097783.3494,
+    "hash": "cd1da7b45d4e892501e2e487b8ad01db"
+  },
+  "src/controllers/seo.controller.js": {
+    "mtime": 1788877323377.5962,
+    "hash": "6f5f45f8b3bd9462111a6a62c65c95b8"
+  },
+  "src/utils/seo.js": {
+    "mtime": 1788877308909.8499,
+    "hash": "61e5f95d6e88a412ce18994ba00d2755"
+  },
+  "test/seo.test.js": {
+    "mtime": 1788877504117.8772,
+    "hash": "c04f3d49e4ccf5105e4a1bd2ba4d72ec"
+  },
+  "src/views/public/404.ejs": {
+    "mtime": 1788877869316.8584,
+    "hash": "9fca23e6029b10e61c1638d39963d0e8"
+  },
+  "src/views/public/500.ejs": {
+    "mtime": 1788877890090.9802,
+    "hash": "ec8b1e3141b665f8348450067f0e75d6"
+  },
+  "test/acceptance.test.js": {
+    "mtime": 1788878163319.5122,
+    "hash": "97989d173af412b524bf5ac98faeb008"
+  },
+  "_build_plan/milestones/4-seo/milestone-log.md": {
+    "mtime": 1788877600559.6707,
+    "hash": "03558165ed356d1740eefdf7ee9be040"
+  },
+  "render.yaml": {
+    "mtime": 1788878088260.1702,
+    "hash": "30d2bbeadf0001222647a2a2ca201609"
+  }
+}

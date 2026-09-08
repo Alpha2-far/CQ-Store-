@@ -1,0 +1,40 @@
+{
+  "context7-auto-docs": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node .agents/hooks/pre-invocation.js"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/hooks/pre-tool.js"
+          }
+        ]
+      }
+    ]
+  },
+  "graphify-auto-graph": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node .agents/hooks/graphify-pre-invocation.js"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/hooks/graphify-post-tool.js"
+          }
+        ]
+      }
+    ]
+  }
+}

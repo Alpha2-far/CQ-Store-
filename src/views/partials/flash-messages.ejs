@@ -1,0 +1,6 @@
+<% if (flash) { %>
+  <div class="alert alert-<%= flash.type === 'error' ? 'error' : 'success' %>">
+    <i data-lucide="<%= flash.type === 'error' ? 'alert-circle' : 'check-circle-2' %>" style="width: 20px; height: 20px; shrink: 0;"></i>
+    <div><%= flash.message %></div>
+  </div>
+<% } %>

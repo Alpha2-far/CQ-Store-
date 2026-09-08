@@ -1,0 +1,373 @@
+<%- include('../../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title"><%= product ? `Modifier « ${product.name} »` : 'Nouveau Produit' %></h1>
+    <p class="page-subtitle">Renseignez la fiche produit détaillée, les caractéristiques et les photos</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/products" class="btn btn-secondary">
+      <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+      <span>Retour au catalogue</span>
+    </a>
+  </div>
+</div>
+
+<form 
+  action="<%= product ? `/admin/products/${product.id}/edit` : '/admin/products' %>" 
+  method="POST" 
+  enctype="multipart/form-data"
+>
+
+  <div style="display: grid; grid-template-columns: 1fr; gap: 24px;">
+
+    <!-- SECTION 1 : Informations Générales -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">1. Informations Générales</h2>
+      </div>
+
+      <div class="form-grid form-grid-2">
+        <div class="form-group">
+          <label for="name" class="form-label">Nom commercial du produit <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            class="form-control" 
+            placeholder="Ex: Lenovo ThinkPad T14 Gen 2" 
+            value="<%= product ? product.name : '' %>" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="reference" class="form-label">Référence interne GQ Store <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="reference" 
+            name="reference" 
+            class="form-control" 
+            placeholder="Ex: GQ-LEN-T14-001" 
+            value="<%= product ? product.reference : '' %>" 
+            required
+          >
+          <div class="form-hint">Référence unique utilisée pour la recherche et la commande WhatsApp.</div>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid-3">
+        <div class="form-group">
+          <label for="categoryId" class="form-label">Catégorie <span class="required">*</span></label>
+          <select id="categoryId" name="categoryId" class="form-control" required>
+            <option value="">Sélectionner une catégorie</option>
+            <% categories.forEach(cat => { %>
+              <option value="<%= cat.id %>" <%= (product && product.categoryId === cat.id) ? 'selected' : '' %>>
+                <%= cat.name %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="brandId" class="form-label">Marque</label>
+          <select id="brandId" name="brandId" class="form-control">
+            <option value="">Aucune / Non spécifiée</option>
+            <% brands.forEach(brand => { %>
+              <option value="<%= brand.id %>" <%= (product && product.brandId === brand.id) ? 'selected' : '' %>>
+                <%= brand.name %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="condition" class="form-label">État du produit</label>
+          <input 
+            type="text" 
+            id="condition" 
+            name="condition" 
+            class="form-control" 
+            placeholder="Ex: Neuf, Reconditionné, Occasion..." 
+            list="conditionsList" 
+            value="<%= product ? product.condition : 'Neuf' %>"
+          >
+          <datalist id="conditionsList">
+            <% existingConditions.forEach(cond => { %>
+              <option value="<%= cond %>"></option>
+            <% }); %>
+          </datalist>
+          <div class="form-hint">Saisie libre. Les valeurs existantes sont suggérées.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label">Description détaillée</label>
+        <textarea 
+          id="description" 
+          name="description" 
+          class="form-control" 
+          style="min-height: 120px;" 
+          placeholder="Présentation complète, atouts, état physique et usage recommandé..."
+        ><%= product && product.description ? product.description : '' %></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 2 : Tarifs & Disponibilité -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">2. Tarification & Stock</h2>
+      </div>
+
+      <div class="form-grid form-grid-3">
+        <div class="form-group">
+          <label for="price" class="form-label">Prix régulier (FCFA) <span class="required">*</span></label>
+          <input 
+            type="number" 
+            id="price" 
+            name="price" 
+            class="form-control" 
+            placeholder="450000" 
+            value="<%= product ? product.price : '' %>" 
+            required 
+            min="0"
+          >
+          <div class="form-hint">Prix en FCFA sans décimales.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="promoPrice" class="form-label">Prix promo facultatif (FCFA)</label>
+          <input 
+            type="number" 
+            id="promoPrice" 
+            name="promoPrice" 
+            class="form-control" 
+            placeholder="Ex: 390000" 
+            value="<%= product && product.promoPrice ? product.promoPrice : '' %>" 
+            min="0"
+          >
+          <div class="form-hint">Si renseigné, l'ancien prix sera barré.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="stock" class="form-label">Quantité en stock <span class="required">*</span></label>
+          <input 
+            type="number" 
+            id="stock" 
+            name="stock" 
+            class="form-control" 
+            value="<%= product ? product.stock : 1 %>" 
+            min="0" 
+            required
+          >
+          <div class="form-hint">À 0, l'article passe automatiquement en « Rupture ».</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 : Caractéristiques Techniques -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">3. Caractéristiques Techniques</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">
+            Ajoutez les spécifications ligne par ligne (ex. Processeur, RAM, Stockage, Écran).
+          </p>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" id="addSpecBtn">
+          <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+          <span>Ajouter une ligne</span>
+        </button>
+      </div>
+
+      <datalist id="specLabelsList">
+        <% specLabels.forEach(label => { %>
+          <option value="<%= label %>"></option>
+        <% }); %>
+      </datalist>
+
+      <div id="specsContainer">
+        <% if (product && product.specifications && product.specifications.length > 0) { %>
+          <% product.specifications.forEach(spec => { %>
+            <div class="spec-row">
+              <input 
+                type="text" 
+                name="specLabels" 
+                class="form-control" 
+                placeholder="Libellé (ex: Processeur)" 
+                list="specLabelsList" 
+                value="<%= spec.label %>" 
+                required
+              >
+              <input 
+                type="text" 
+                name="specValues" 
+                class="form-control" 
+                placeholder="Valeur (ex: Intel Core i7)" 
+                value="<%= spec.value %>" 
+                required
+              >
+              <button type="button" class="btn btn-danger btn-sm btn-icon remove-spec-btn" title="Supprimer">
+                <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+              </button>
+            </div>
+          <% }); %>
+        <% } else { %>
+          <!-- Lignes d'exemples par défaut pour nouveau produit -->
+          <div class="spec-row">
+            <input type="text" name="specLabels" class="form-control" placeholder="Libellé" list="specLabelsList" value="Processeur">
+            <input type="text" name="specValues" class="form-control" placeholder="Valeur (ex: Intel Core i5 11e Génération)">
+            <button type="button" class="btn btn-danger btn-sm btn-icon remove-spec-btn"><i data-lucide="trash-2" style="width: 16px; height: 16px;"></i></button>
+          </div>
+          <div class="spec-row">
+            <input type="text" name="specLabels" class="form-control" placeholder="Libellé" list="specLabelsList" value="RAM">
+            <input type="text" name="specValues" class="form-control" placeholder="Valeur (ex: 16 Go DDR4)">
+            <button type="button" class="btn btn-danger btn-sm btn-icon remove-spec-btn"><i data-lucide="trash-2" style="width: 16px; height: 16px;"></i></button>
+          </div>
+          <div class="spec-row">
+            <input type="text" name="specLabels" class="form-control" placeholder="Libellé" list="specLabelsList" value="Stockage">
+            <input type="text" name="specValues" class="form-control" placeholder="Valeur (ex: 512 Go SSD NVMe)">
+            <button type="button" class="btn btn-danger btn-sm btn-icon remove-spec-btn"><i data-lucide="trash-2" style="width: 16px; height: 16px;"></i></button>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- SECTION 4 : Galerie Photos & Cloudinary -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">4. Galerie Photos</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">
+            Ajoutez plusieurs photos. Définissez la photo principale affichée sur les cartes du catalogue.
+          </p>
+        </div>
+      </div>
+
+      <% if (product && product.photos && product.photos.length > 0) { %>
+        <h3 style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">Photos actuelles :</h3>
+        <div class="photos-grid">
+          <% product.photos.forEach(photo => { %>
+            <div class="photo-item <%= photo.isMain ? 'is-main' : '' %>">
+              <% if (photo.isMain) { %>
+                <div class="photo-badge-main">Principale</div>
+              <% } %>
+              <div class="photo-thumbnail-box">
+                <img src="<%= photo.url %>" alt="<%= photo.alt %>">
+              </div>
+              <div class="photo-controls">
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input 
+                    type="radio" 
+                    name="mainPhotoId" 
+                    value="<%= photo.id %>" 
+                    <%= photo.isMain ? 'checked' : '' %>
+                  >
+                  <span>Principale</span>
+                </label>
+
+                <input 
+                  type="text" 
+                  name="photo_alt_<%= photo.id %>" 
+                  class="form-control" 
+                  style="font-size: 11px; padding: 4px 6px;" 
+                  value="<%= photo.alt %>" 
+                  placeholder="Texte alt"
+                >
+
+                <label style="display: flex; align-items: center; gap: 6px; color: var(--danger); cursor: pointer; margin-top: 4px;">
+                  <input type="checkbox" name="deletePhotos" value="<%= photo.id %>">
+                  <span>Supprimer</span>
+                </label>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+
+      <div style="margin-top: 20px;">
+        <label for="photosInput" class="form-label">
+          <%= (product && product.photos && product.photos.length > 0) ? 'Ajouter de nouvelles photos :' : 'Sélectionner les photos du produit :' %>
+        </label>
+        <input 
+          type="file" 
+          id="photosInput" 
+          name="photos" 
+          class="form-control" 
+          multiple 
+          accept="image/png, image/jpeg, image/webp, image/avif"
+        >
+        <div class="form-hint">Formats acceptés : JPG, PNG, WEBP, AVIF. Max 10 Mo par photo.</div>
+      </div>
+
+      <!-- Aperçu des nouvelles photos -->
+      <div id="photosPreviewContainer" class="photos-grid"></div>
+    </div>
+
+    <!-- SECTION 5 : Paramètres & Référencement -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">5. Visibilité & Référencement (SEO)</h2>
+      </div>
+
+      <div class="form-grid form-grid-2" style="margin-bottom: 20px;">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            name="isVisible" 
+            <%= (!product || product.isVisible) ? 'checked' : '' %>
+          >
+          <span><strong>Publié</strong> (visible dans le catalogue et sur Google)</span>
+        </label>
+
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            name="isFeatured" 
+            <%= (product && product.isFeatured) ? 'checked' : '' %>
+          >
+          <span><strong>Mis en avant</strong> (remonte dans la sélection d'accueil)</span>
+        </label>
+      </div>
+
+      <div style="padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <div class="form-group">
+          <label for="seoTitle" class="form-label">Titre SEO personnalisé</label>
+          <input 
+            type="text" 
+            id="seoTitle" 
+            name="seoTitle" 
+            class="form-control" 
+            placeholder="Laissez vide pour utiliser le nom du produit par défaut" 
+            value="<%= product && product.seoTitle ? product.seoTitle : '' %>"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="seoDescription" class="form-label">Description SEO personnalisée</label>
+          <textarea 
+            id="seoDescription" 
+            name="seoDescription" 
+            class="form-control" 
+            style="min-height: 70px;" 
+            placeholder="Description concise pour les moteurs de recherche..."
+          ><%= product && product.seoDescription ? product.seoDescription : '' %></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boutons d'action -->
+    <div style="display: flex; gap: 14px; padding-bottom: 30px;">
+      <button type="submit" class="btn btn-primary" style="min-width: 180px;">
+        <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+        <span><%= product ? 'Enregistrer les modifications' : 'Créer le produit' %></span>
+      </button>
+      <a href="/admin/products" class="btn btn-secondary">Annuler</a>
+    </div>
+
+  </div>
+
+</form>
+
+<script src="/js/product-form.js"></script>
+<%- include('../../partials/footer') %>

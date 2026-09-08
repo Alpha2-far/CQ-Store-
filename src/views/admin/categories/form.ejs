@@ -1,0 +1,110 @@
+<%- include('../../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title"><%= category ? `Modifier « ${category.name} »` : 'Nouvelle catégorie' %></h1>
+    <p class="page-subtitle">Configurez les informations et paramètres d'affichage de la catégorie</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/categories" class="btn btn-secondary">
+      <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+      <span>Retour aux catégories</span>
+    </a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 800px;">
+  <form action="<%= category ? `/admin/categories/${category.id}/edit` : '/admin/categories' %>" method="POST">
+    
+    <div class="form-group">
+      <label for="name" class="form-label">Nom de la catégorie <span class="required">*</span></label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        class="form-control" 
+        placeholder="Ex: Ordinateurs portables" 
+        value="<%= category ? category.name : '' %>" 
+        required
+      >
+      <div class="form-hint">Le slug sera généré automatiquement à partir de ce nom.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="description" class="form-label">Texte de présentation (utile pour le SEO)</label>
+      <textarea 
+        id="description" 
+        name="description" 
+        class="form-control" 
+        placeholder="Présentation affichée en tête de la page catégorie..."
+      ><%= category && category.description ? category.description : '' %></textarea>
+    </div>
+
+    <div class="form-grid form-grid-2">
+      <div class="form-group">
+        <label for="position" class="form-label">Ordre d'affichage dans le menu</label>
+        <input 
+          type="number" 
+          id="position" 
+          name="position" 
+          class="form-control" 
+          value="<%= category ? category.position : 0 %>" 
+          min="0"
+        >
+        <div class="form-hint">Un chiffre plus petit apparaît en premier.</div>
+      </div>
+
+      <div class="form-group" style="display: flex; align-items: center; margin-top: 26px;">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            name="isVisible" 
+            <%= (!category || category.isVisible) ? 'checked' : '' %>
+          >
+          <span>Visible sur le site et dans le menu</span>
+        </label>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+      <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 14px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="search" style="width: 16px; height: 16px; color: var(--text-secondary);"></i>
+        <span>Paramètres SEO (Optionnels)</span>
+      </h3>
+
+      <div class="form-group">
+        <label for="seoTitle" class="form-label">Titre SEO (balise &lt;title&gt;)</label>
+        <input 
+          type="text" 
+          id="seoTitle" 
+          name="seoTitle" 
+          class="form-control" 
+          placeholder="Laissez vide pour utiliser le nom de la catégorie" 
+          value="<%= category && category.seoTitle ? category.seoTitle : '' %>"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="seoDescription" class="form-label">Description SEO (&lt;meta name="description"&gt;)</label>
+        <textarea 
+          id="seoDescription" 
+          name="seoDescription" 
+          class="form-control" 
+          style="min-height: 70px;" 
+          placeholder="Courte description pour les moteurs de recherche..."
+        ><%= category && category.seoDescription ? category.seoDescription : '' %></textarea>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; display: flex; gap: 12px;">
+      <button type="submit" class="btn btn-primary">
+        <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+        <span><%= category ? 'Enregistrer les modifications' : 'Créer la catégorie' %></span>
+      </button>
+      <a href="/admin/categories" class="btn btn-secondary">Annuler</a>
+    </div>
+
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

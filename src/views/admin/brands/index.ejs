@@ -1,0 +1,66 @@
+<%- include('../../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Marques informatiques</h1>
+    <p class="page-subtitle">Gérez les fabricants et marques représentées dans le catalogue</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/brands/new" class="btn btn-primary">
+      <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+      <span>Nouvelle marque</span>
+    </a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 800px;">
+  <% if (brands.length === 0) { %>
+    <div style="text-align: center; padding: 40px 16px; color: var(--text-secondary);">
+      <i data-lucide="tag" style="width: 40px; height: 40px; stroke-width: 1.5; margin-bottom: 8px;"></i>
+      <p>Aucune marque enregistrée pour le moment.</p>
+      <a href="/admin/brands/new" class="btn btn-primary btn-sm" style="margin-top: 12px;">Créer la première marque</a>
+    </div>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom de la marque</th>
+            <th>Identifiant URL (Slug)</th>
+            <th>Produits associés</th>
+            <th style="text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% brands.forEach(brand => { %>
+            <tr>
+              <td>
+                <span style="font-weight: 600; color: var(--text-primary);"><%= brand.name %></span>
+              </td>
+              <td>
+                <code style="font-size: 12px; background: var(--bg-secondary); padding: 3px 6px; border-radius: var(--radius-sm);"><%= brand.slug %></code>
+              </td>
+              <td>
+                <span class="badge badge-purple"><%= brand._count.products %> produit(s)</span>
+              </td>
+              <td style="text-align: right;">
+                <div style="display: inline-flex; gap: 6px;">
+                  <a href="/admin/brands/<%= brand.id %>/edit" class="btn btn-secondary btn-sm" title="Modifier">
+                    <i data-lucide="edit-3" style="width: 15px; height: 15px;"></i>
+                  </a>
+                  <form action="/admin/brands/<%= brand.id %>/delete" method="POST" style="display: inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette marque ?');">
+                    <button type="submit" class="btn btn-danger btn-sm" title="Supprimer">
+                      <i data-lucide="trash-2" style="width: 15px; height: 15px;"></i>
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../../partials/footer') %>

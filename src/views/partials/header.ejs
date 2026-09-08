@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Administration | GQ Store' %></title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="/images/logo-gq-store.png">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="admin-layout">
+    <%- include('./admin-sidebar') %>
+    <div style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+      <%- include('./admin-header') %>
+      <main class="admin-main">
+        <%- include('./flash-messages') %>

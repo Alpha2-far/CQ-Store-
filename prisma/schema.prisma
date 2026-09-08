@@ -1,0 +1,101 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Category {
+  id             String    @id @default(cuid())
+  name           String
+  slug           String    @unique
+  description    String?   @db.Text
+  seoTitle       String?
+  seoDescription String?   @db.Text
+  position       Int       @default(0)
+  isVisible      Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  products       Product[]
+}
+
+model Brand {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  products  Product[]
+}
+
+model Product {
+  id             String           @id @default(cuid())
+  name           String
+  slug           String           @unique
+  description    String?          @db.Text
+  price          Int              // En FCFA
+  promoPrice     Int?             // Prix promo réduit en FCFA (optionnel)
+  stock          Int              @default(0)
+  reference      String           // Référence interne GQ Store
+  condition      String           // État saisi librement (Neuf, Reconditionné, etc.)
+  isVisible      Boolean          @default(true)
+  isFeatured     Boolean          @default(false)
+  seoTitle       String?
+  seoDescription String?          @db.Text
+  categoryId     String
+  category       Category         @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  brandId        String?
+  brand          Brand?           @relation(fields: [brandId], references: [id], onDelete: SetNull)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  photos         ProductPhoto[]
+  specifications Specification[]
+
+  @@index([reference])
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isVisible, isFeatured])
+}
+
+model ProductPhoto {
+  id        String   @id @default(cuid())
+  url       String
+  publicId  String?  // Cloudinary publicId pour suppression
+  alt       String
+  position  Int      @default(0)
+  isMain    Boolean  @default(false)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
+}
+
+model Specification {
+  id        String   @id @default(cuid())
+  label     String   // ex. Processeur, RAM, Stockage, Écran
+  value     String   // ex. Intel Core i5, 16 Go, 512 Go SSD
+  position  Int      @default(0)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
+  @@index([label])
+}

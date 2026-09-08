@@ -1,0 +1,45 @@
+<%- include('../../partials/header') %>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title"><%= brand ? `Modifier la marque « ${brand.name} »` : 'Nouvelle marque' %></h1>
+    <p class="page-subtitle">Ajoutez ou modifiez une marque commerciale pour vos produits</p>
+  </div>
+  <div class="page-actions">
+    <a href="/admin/brands" class="btn btn-secondary">
+      <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+      <span>Retour aux marques</span>
+    </a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 600px;">
+  <form action="<%= brand ? `/admin/brands/${brand.id}/edit` : '/admin/brands' %>" method="POST">
+    
+    <div class="form-group">
+      <label for="name" class="form-label">Nom de la marque <span class="required">*</span></label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        class="form-control" 
+        placeholder="Ex: Lenovo, HP, Dell, Apple, Canon..." 
+        value="<%= brand ? brand.name : '' %>" 
+        required 
+        autofocus
+      >
+      <div class="form-hint">Le slug sera automatiquement normalisé en minuscules sans espaces.</div>
+    </div>
+
+    <div style="margin-top: 24px; display: flex; gap: 12px;">
+      <button type="submit" class="btn btn-primary">
+        <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+        <span><%= brand ? 'Enregistrer les modifications' : 'Créer la marque' %></span>
+      </button>
+      <a href="/admin/brands" class="btn btn-secondary">Annuler</a>
+    </div>
+
+  </form>
+</div>
+
+<%- include('../../partials/footer') %>

@@ -1,0 +1,73 @@
+<%- include('../partials/public-header') %>
+
+<div class="container" style="padding-top: 24px; padding-bottom: 60px;">
+  
+  <!-- Fil d'Ariane -->
+  <nav class="product-breadcrumb" aria-label="Fil d'Ariane" style="margin-bottom: 20px;">
+    <a href="/">Accueil</a>
+    <span>/</span>
+    <span style="color: var(--gq-purple); font-weight: 600;">Mon Panier</span>
+  </nav>
+
+  <!-- En-tête de page -->
+  <div style="margin-bottom: 24px;">
+    <h1 style="font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em;">
+      Mon Panier
+    </h1>
+    <p style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">
+      Vérifiez votre sélection. La commande se finalise directement avec un conseiller GQ Store sur WhatsApp, sans aucun paiement en ligne.
+    </p>
+  </div>
+
+  <!-- Zone Dynamique Panier (alimentée par GQCart dans public.js) -->
+  <div id="cartPageContainer" data-whatsapp-number="<%= typeof whatsappNumber !== 'undefined' ? whatsappNumber : '22998471366' %>">
+    <!-- Chargement initial -->
+    <div style="text-align: center; padding: 48px; color: var(--text-muted);">
+      <p>Chargement de votre sélection...</p>
+    </div>
+  </div>
+
+  <!-- Réassurance Panier -->
+  <div style="margin-top: 48px; padding: 24px; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--gq-purple-subtle); color: var(--gq-purple); display: flex; align-items: center; justify-content: center; shrink: 0;">
+          <i data-lucide="message-square"></i>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Commande simplifiée</h4>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">
+            Vos articles et quantités sont transmis automatiquement à notre équipe WhatsApp en un clic.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--gq-purple-subtle); color: var(--gq-purple); display: flex; align-items: center; justify-content: center; shrink: 0;">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Zéro risque</h4>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">
+            Aucun paiement requis sur le site. Vous réglez à la livraison ou au retrait après vérification.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--gq-purple-subtle); color: var(--gq-purple); display: flex; align-items: center; justify-content: center; shrink: 0;">
+          <i data-lucide="truck"></i>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Livraison rapide</h4>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">
+            Expédition soignée à Cotonou, Calavi et dans toutes les villes du Bénin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%- include('../partials/public-footer') %>
