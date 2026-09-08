@@ -48,8 +48,8 @@
     "hash": "5ba8bf98441ddf351626c1db3effb816"
   },
   "src/app.js": {
-    "mtime": 1788879459689.177,
-    "hash": "e9eba301570c4c98f50f3658a09416c3"
+    "mtime": 1788881213060.2952,
+    "hash": "e2929a943bb914278632caf8f4418a98"
   },
   "src/config/cloudinary.js": {
     "mtime": 1788876135011.012,
@@ -188,8 +188,8 @@
     "hash": "018170d4674877b3099a0df3897815b0"
   },
   "public/js/public.js": {
-    "mtime": 1788875651059.3875,
-    "hash": "194389e248960348fd1751f752992974"
+    "mtime": 1788881196891.5347,
+    "hash": "bd12803dd07153309b34c68a460d3fc6"
   },
   "src/controllers/public.controller.js": {
     "mtime": 1788877448273.5579,
@@ -200,8 +200,8 @@
     "hash": "f3493ae24499701b08a65627185e0e5a"
   },
   "src/views/partials/public-footer.ejs": {
-    "mtime": 1788864354449.71,
-    "hash": "dc2b198ddb8646d14f7b04db8c0b3e50"
+    "mtime": 1788881155021.5881,
+    "hash": "e03664bf5ff51d80df242d0b1162c293"
   },
   "src/views/partials/public-header.ejs": {
     "mtime": 1788877373099.8967,
@@ -216,8 +216,8 @@
     "hash": "753e1824f980b17083c03017773fa046"
   },
   "src/views/public/product.ejs": {
-    "mtime": 1788878057743.4375,
-    "hash": "17d6d526ac90eca5eecefda3f9a2b982"
+    "mtime": 1788881180667.4346,
+    "hash": "c386454b56cae2fa0a9d48f27da6dd89"
   },
   "test/public.test.js": {
     "mtime": 1788879576735.7847,
@@ -308,35 +308,39 @@
     "hash": "dad1fd37d74ac32b5d769846002a537c"
   },
   ".graphify/GRAPH_REPORT.md": {
-    "mtime": 1788878296315.3767,
-    "hash": "f7ff01fe3ef29836515ba70f4855140f"
+    "mtime": 1788880335712.2056,
+    "hash": "a9777ed006dcdfd002bc036ce92537fe"
   },
   ".graphify/description-instructions/batch-000.md": {
-    "mtime": 1788878296216.6226,
-    "hash": "13c42659ed0fd9277ce9e41b5770ac74"
+    "mtime": 1788880335642.302,
+    "hash": "b90279ad48fe4f1a2d0877582e60d3a6"
   },
   ".graphify/description-instructions/batch-001.md": {
-    "mtime": 1788878296220.3794,
-    "hash": "667f320e8fb69ccc2be174437d093b8a"
+    "mtime": 1788880335642.905,
+    "hash": "392460fb5551e1d24013dfd5d598f67d"
   },
   ".graphify/description-instructions/batch-002.md": {
-    "mtime": 1788878296222.0781,
-    "hash": "b7d242dbac559aee62fa1ea6502d3766"
+    "mtime": 1788880335644.692,
+    "hash": "b7c193f08b6b9635955f524c46752365"
   },
   ".graphify/description-instructions/batch-003.md": {
-    "mtime": 1788878296223.0217,
-    "hash": "0870535e27990e8ede3a24e454f7cdad"
+    "mtime": 1788880335645.2039,
+    "hash": "dd956d38c35dd400101672498831735f"
   },
   ".graphify/description-instructions/batch-004.md": {
-    "mtime": 1788878296223.4824,
-    "hash": "8cb95d185029a0f9eca9a0a76ed27646"
+    "mtime": 1788880335650.649,
+    "hash": "69a5d4a13f077f2421e4a2941e8a5ab9"
   },
   ".graphify/label-instructions/communities.md": {
-    "mtime": 1788878296106.4458,
-    "hash": "8e2a4ad8cfd67ab4ca0b2031c8e57ccb"
+    "mtime": 1788880335530.5813,
+    "hash": "94c98372b0af23c2fa3989927db8c529"
   },
   "_build_plan/milestones/5-finition-deploiement/milestone-log.md": {
     "mtime": 1788878319837.091,
     "hash": "b37a9d9f01f4ab2a77bdf4036e9f4fe1"
+  },
+  ".graphify/description-instructions/batch-005.md": {
+    "mtime": 1788880335651.2778,
+    "hash": "90cc0cecca88774bea8efeb3a1d56565"
   }
 }

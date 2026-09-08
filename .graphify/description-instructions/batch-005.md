@@ -17,6 +17,7 @@ No marketing language.
 Respond ONLY with a JSON object mapping each node id (as a string) to its
 one-sentence description — no prose, no markdown fences.
 
+- "test_cart_test_assert": "assert" | kind=code-symbol | source=test/cart.test.js:L2 | neighbors=[cart.test.js]
 - "test_cart_test_http": "http" | kind=code-symbol | source=test/cart.test.js:L3 | neighbors=[cart.test.js]
 - "test_cart_test_prisma": "prisma" | kind=code-symbol | source=test/cart.test.js:L5 | neighbors=[cart.test.js]
 - "test_cart_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/cart.test.js:L1 | neighbors=[cart.test.js]

@@ -30,6 +30,7 @@ one-sentence description — no prose, no markdown fences.
 - "utils_seo_generatehomeseo": "generateHomeSeo()" | kind=code-symbol | source=src/utils/seo.js:L290 | neighbors=[public.controller.js, seo.js, cleanMetaText(), resolveImageUrl()]
 - "utils_seo_generateproductseo": "generateProductSeo()" | kind=code-symbol | source=src/utils/seo.js:L55 | neighbors=[public.controller.js, seo.js, cleanMetaText(), resolveImageUrl()]
 - "commit:repo:github.com/Alpha2-far/CQ-Store-@0778fb761c9def0291cc2ae9942bd6023418047c": "0778fb7 Ajout du PRD GQ Store et des prompts de jalons" | kind=Commit | source=git | neighbors=[claude/install-bm-skills-g64nae, main, 813e9d0 feat: Complete GQ Store impleme…]
+- "commit:repo:github.com/Alpha2-far/CQ-Store-@f11430a59746c6166cd98ba38fb82f249f38034b": "f11430a chore(render): set startCommand to npm start directly" | kind=Commit | source=git | neighbors=[main, 90f7262 chore: update Graphify knowledg…, f4b697f fix(prod): enable trust proxy f…]
 - "config_cloudinary": "cloudinary.js" | kind=code-symbol | source=src/config/cloudinary.js:L1 | neighbors=[813e9d0 feat: Complete GQ Store impleme…, isConfigured, upload.js]
 - "js_public": "public.js" | kind=code-symbol | source=public/js/public.js:L1 | neighbors=[813e9d0 feat: Complete GQ Store impleme…, formatFCFA(), GQCart]
 - "utils_seo_getbaseurl": "getBaseUrl()" | kind=code-symbol | source=src/utils/seo.js:L8 | neighbors=[public.controller.js, seo.controller.js, seo.js]
@@ -39,7 +40,7 @@ one-sentence description — no prose, no markdown fences.
 - "20260908090027_init_milestone_1_migration_productphoto": "ProductPhoto" | kind=code-symbol | source=prisma/migrations/20260908090027_init_milestone_1/migration.sql:L64 | neighbors=[migration.sql, Product]
 - "20260908090027_init_milestone_1_migration_specification": "Specification" | kind=code-symbol | source=prisma/migrations/20260908090027_init_milestone_1/migration.sql:L79 | neighbors=[migration.sql, Product]
 - "branch:repo:github.com/Alpha2-far/CQ-Store-#claude/install-bm-skills-g64nae": "claude/install-bm-skills-g64nae" | kind=Branch | source=git | neighbors=[0778fb7 Ajout du PRD GQ Store et des pr…, 813e9d0 feat: Complete GQ Store impleme…]
-- "commit:repo:github.com/Alpha2-far/CQ-Store-@f11430a59746c6166cd98ba38fb82f249f38034b": "f11430a chore(render): set startCommand to npm start directly" | kind=Commit | source=git | neighbors=[main, f4b697f fix(prod): enable trust proxy f…]
+- "commit:repo:github.com/Alpha2-far/CQ-Store-@90f72629e0b448c5f768c6ae2419a5599a5faa3e": "90f7262 chore: update Graphify knowledge graph" | kind=Commit | source=git | neighbors=[main, f11430a chore(render): set startCommand…]
 - "cursor_mcp": "mcp.json" | kind=code-symbol | source=.cursor/mcp.json:L1 | neighbors=[813e9d0 feat: Complete GQ Store impleme…, context7]
 - "hooks_graphify_post_tool": "graphify-post-tool.js" | kind=code-symbol | source=.agents/hooks/graphify-post-tool.js:L1 | neighbors=[813e9d0 feat: Complete GQ Store impleme…, { execSync }]
 - "middlewares_auth_authlocals": "authLocals()" | kind=code-symbol | source=src/middlewares/auth.js:L29 | neighbors=[auth.js, app.js]
@@ -63,7 +64,6 @@ one-sentence description — no prose, no markdown fences.
 - "controllers_auth_controller_authcontroller": "authController" | kind=code-symbol | source=src/controllers/auth.controller.js:L4 | neighbors=[auth.controller.js]
 - "controllers_auth_controller_bcrypt": "bcrypt" | kind=code-symbol | source=src/controllers/auth.controller.js:L1 | neighbors=[auth.controller.js]
 - "controllers_auth_controller_prisma": "prisma" | kind=code-symbol | source=src/controllers/auth.controller.js:L2 | neighbors=[auth.controller.js]
-- "controllers_brand_controller_brandcontroller": "brandController" | kind=code-symbol | source=src/controllers/brand.controller.js:L5 | neighbors=[brand.controller.js]
 
 ## Instructions
 

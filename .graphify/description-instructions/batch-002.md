@@ -17,6 +17,7 @@ No marketing language.
 Respond ONLY with a JSON object mapping each node id (as a string) to its
 one-sentence description — no prose, no markdown fences.
 
+- "controllers_brand_controller_brandcontroller": "brandController" | kind=code-symbol | source=src/controllers/brand.controller.js:L5 | neighbors=[brand.controller.js]
 - "controllers_brand_controller_formatdate": "{ formatDate }" | kind=code-symbol | source=src/controllers/brand.controller.js:L3 | neighbors=[brand.controller.js]
 - "controllers_brand_controller_generateuniqueslug": "{ generateUniqueSlug }" | kind=code-symbol | source=src/controllers/brand.controller.js:L2 | neighbors=[brand.controller.js]
 - "controllers_brand_controller_prisma": "prisma" | kind=code-symbol | source=src/controllers/brand.controller.js:L1 | neighbors=[brand.controller.js]
@@ -56,7 +57,6 @@ one-sentence description — no prose, no markdown fences.
 - "mcp_package_upstash_context7_mcp": "@upstash/context7-mcp" | kind=code-symbol | source=.cursor/mcp.json:L1 | neighbors=[context7]
 - "middlewares_upload_cloudinary_iscloudinaryconfigured": "{ cloudinary, isCloudinaryConfigured }" | kind=code-symbol | source=src/middlewares/upload.js:L4 | neighbors=[upload.js]
 - "middlewares_upload_filefilter": "fileFilter()" | kind=code-symbol | source=src/middlewares/upload.js:L9 | neighbors=[upload.js]
-- "middlewares_upload_fs": "fs" | kind=code-symbol | source=src/middlewares/upload.js:L3 | neighbors=[upload.js]
 
 ## Instructions
 

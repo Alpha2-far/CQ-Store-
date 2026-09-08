@@ -1,25 +1,25 @@
 # Graph Report - .  (2026-09-08)
 
 ## Corpus Check
-- 85 files · ~70,836 words
+- 86 files · ~71,931 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 214 nodes · 302 edges · 17 communities detected
+- 215 nodes · 304 edges · 17 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
-- Edge kinds: contains: 146 · MODIFIES: 61 · imports_from: 39 · imports: 30 · calls: 10 · ON_BRANCH: 6 · references: 6 · PARENT_OF: 3 · requires_env: 1
+- Edge kinds: contains: 146 · MODIFIES: 61 · imports_from: 39 · imports: 30 · calls: 10 · ON_BRANCH: 7 · references: 6 · PARENT_OF: 4 · requires_env: 1
 
 
 ## Input Scope
 - Requested: auto
 - Resolved: committed (source: default-auto)
-- Included files: 85 · Candidates: 107
-- Excluded: 0 untracked · 3123 ignored · 0 sensitive · 0 missing committed
+- Included files: 86 · Candidates: 108
+- Excluded: 1 untracked · 3130 ignored · 0 sensitive · 0 missing committed
 - Recommendation: Use --scope all or graphify.yaml inputs.corpus for a knowledge-base folder.
 
 ## Graph Freshness
-- Built from Git commit: `f11430a`
+- Built from Git commit: `90f7262`
 - Compare this hash to `git rev-parse HEAD` before trusting freshness-sensitive graph output.
 ## God Nodes (most connected - your core abstractions)
 1. `requireAuth()` - 6 edges
@@ -34,13 +34,14 @@
 10. `generateCategorySeo()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- None detected - all connections are within the same source files.
+- `0778fb7 Ajout du PRD GQ Store et des prompts de jalons` --ON_BRANCH--> `main`  [EXTRACTED]
+  git → git  _Bridges community 0 → community 7_
 
 ## Communities
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
-Nodes (8): claude/install-bm-skills-g64nae, main, 0778fb7 Ajout du PRD GQ Store et des prompts de jalons, 813e9d0 feat: Complete GQ Store implementation (Milestones 1 to 5) with Render deployment blueprint and 100% test coverage, f11430a chore(render): set startCommand to npm start directly, f4b697f fix(prod): enable trust proxy for secure cookie sessions on Render and update test assertion, { execSync }, GQCart
+Nodes (5): claude/install-bm-skills-g64nae, 0778fb7 Ajout du PRD GQ Store et des prompts de jalons, 813e9d0 feat: Complete GQ Store implementation (Milestones 1 to 5) with Render deployment blueprint and 100% test coverage, { execSync }, GQCart
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
@@ -73,16 +74,16 @@ Cohesion: 0.19
 Nodes (11): brandController, { formatDate }, { generateUniqueSlug }, prisma, categoryController, { formatDate }, { generateUniqueSlug }, prisma (+3 more)
 
 ### Community 7 - "Community 7"
+Cohesion: 0.24
+Nodes (9): main, 90f7262 chore: update Graphify knowledge graph, f11430a chore(render): set startCommand to npm start directly, f4b697f fix(prod): enable trust proxy for secure cookie sessions on Render and update test assertion, app, assert, http, prisma (+1 more)
+
+### Community 8 - "Community 8"
 Cohesion: 0.22
 Nodes (8): authRoutes, brandRoutes, categoryRoutes, dashboardController, express, productRoutes, { requireAuth }, router
 
-### Community 8 - "Community 8"
+### Community 9 - "Community 9"
 Cohesion: 0.48
 Nodes (6): Admin, Brand, Category, Product, ProductPhoto, Specification
-
-### Community 9 - "Community 9"
-Cohesion: 0.33
-Nodes (5): app, assert, http, prisma, { test, describe, before, after }
 
 ### Community 10 - "Community 10"
 Cohesion: 0.33
@@ -119,14 +120,14 @@ Nodes (3): { execSync }, fs, path
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `requireAuth()` connect `Community 1` to `Community 7`?**
+- **Why does `requireAuth()` connect `Community 1` to `Community 8`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `formatDate()` connect `Community 2` to `Community 6`, `Community 5`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ execSync }`, `fs`, `path` to the rest of the system?**
   _117 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06006006006006006 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08465608465608465 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**

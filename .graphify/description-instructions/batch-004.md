@@ -17,6 +17,7 @@ No marketing language.
 Respond ONLY with a JSON object mapping each node id (as a string) to its
 one-sentence description — no prose, no markdown fences.
 
+- "routes_brand_routes_router": "router" | kind=code-symbol | source=src/routes/brand.routes.js:L2 | neighbors=[brand.routes.js]
 - "routes_category_routes_categorycontroller": "categoryController" | kind=code-symbol | source=src/routes/category.routes.js:L3 | neighbors=[category.routes.js]
 - "routes_category_routes_express": "express" | kind=code-symbol | source=src/routes/category.routes.js:L1 | neighbors=[category.routes.js]
 - "routes_category_routes_requireauth": "{ requireAuth }" | kind=code-symbol | source=src/routes/category.routes.js:L4 | neighbors=[category.routes.js]
@@ -56,7 +57,6 @@ one-sentence description — no prose, no markdown fences.
 - "test_app_test_prisma": "prisma" | kind=code-symbol | source=test/app.test.js:L5 | neighbors=[app.test.js]
 - "test_app_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/app.test.js:L1 | neighbors=[app.test.js]
 - "test_cart_test_app": "app" | kind=code-symbol | source=test/cart.test.js:L4 | neighbors=[cart.test.js]
-- "test_cart_test_assert": "assert" | kind=code-symbol | source=test/cart.test.js:L2 | neighbors=[cart.test.js]
 
 ## Instructions
 

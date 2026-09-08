@@ -27,7 +27,7 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "'unsafe-inline'", "https://unpkg.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https:"],
-        imgSrc: ["'self'", "data:", "https://res.cloudinary.com"],
+        imgSrc: ["'self'", "data:", "https://res.cloudinary.com", "https://cdn.simpleicons.org"],
         connectSrc: ["'self'"],
         fontSrc: ["'self'", "https:", "data:"],
         objectSrc: ["'none'"],

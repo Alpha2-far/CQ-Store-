@@ -17,6 +17,7 @@ No marketing language.
 Respond ONLY with a JSON object mapping each node id (as a string) to its
 one-sentence description — no prose, no markdown fences.
 
+- "middlewares_upload_fs": "fs" | kind=code-symbol | source=src/middlewares/upload.js:L3 | neighbors=[upload.js]
 - "middlewares_upload_multer": "multer" | kind=code-symbol | source=src/middlewares/upload.js:L1 | neighbors=[upload.js]
 - "middlewares_upload_path": "path" | kind=code-symbol | source=src/middlewares/upload.js:L2 | neighbors=[upload.js]
 - "middlewares_upload_storage": "storage" | kind=code-symbol | source=src/middlewares/upload.js:L7 | neighbors=[upload.js]
@@ -56,7 +57,6 @@ one-sentence description — no prose, no markdown fences.
 - "routes_brand_routes_brandcontroller": "brandController" | kind=code-symbol | source=src/routes/brand.routes.js:L3 | neighbors=[brand.routes.js]
 - "routes_brand_routes_express": "express" | kind=code-symbol | source=src/routes/brand.routes.js:L1 | neighbors=[brand.routes.js]
 - "routes_brand_routes_requireauth": "{ requireAuth }" | kind=code-symbol | source=src/routes/brand.routes.js:L4 | neighbors=[brand.routes.js]
-- "routes_brand_routes_router": "router" | kind=code-symbol | source=src/routes/brand.routes.js:L2 | neighbors=[brand.routes.js]
 
 ## Instructions
 

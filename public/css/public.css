@@ -1442,13 +1442,426 @@ img {
 
 .catalog-layout { padding-top:28px; }.catalog-sidebar > form { border-radius:0; background:#fff; border-width:0 1px 0 0; padding:0 26px 0 0; }.catalog-toolbar { padding-bottom:20px; }.catalog-count strong { color:var(--gq-purple); }.filter-drawer-content { border-radius:0; }.product-detail-layout { max-width:1280px; }.product-main-grid { grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr); gap:64px; }.gallery-main-box { aspect-ratio:1/1; border:0; border-radius:0; padding:36px; }.gallery-thumbs { gap:8px; }.gallery-thumb-btn { border-radius:0; width:64px; height:64px; }.product-info-panel { padding-top:10px; }.product-detail-title { font-size:clamp(2rem,3.2vw,3rem); line-height:1.08; }.product-price-box { border:0; border-radius:0; padding:18px 0; background:transparent; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); }.detail-price { font-size:30px; }.product-buy-section { padding:4px 0; }.specs-card { border-radius:0; margin-top:54px; }.specs-card-header { background:#f7f7f7; }.specs-table td { padding:15px 20px; }.cart-summary-card { border-radius:0; box-shadow:none; }
 
-.whatsapp-float-btn { background:#25D366; width:50px; height:50px; padding:0; border-radius:50%; justify-content:center; right:20px; bottom:20px; }.whatsapp-float-btn span { display:none; }.whatsapp-brand-icon { width:24px; height:24px; display:block; }.whatsapp-float-btn i { display:none; }
-.whatsapp-button-icon { width:19px; height:19px; object-fit:contain; flex:0 0 auto; }
+/* ==========================================================================
+   WHATSAPP & PRODUCT ACTION COMPONENTS (MOBILE FIRST)
+   ========================================================================== */
+
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: auto;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 24px;
+  background-color: #25D366;
+  color: #FFFFFF !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.38);
+  z-index: 90;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+  background-color: #1EBE5D;
+}
+
+.whatsapp-brand-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: block;
+}
+
+.whatsapp-button-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Product Detail Buy Section */
+.product-buy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+
+.product-actions-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.product-qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  height: 48px;
+  padding: 2px 4px;
+  flex-shrink: 0;
+}
+
+.product-qty-selector .qty-btn {
+  width: 36px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease;
+}
+
+.product-qty-selector .qty-btn:hover {
+  background-color: #E8E3EE;
+  color: var(--gq-purple);
+}
+
+.product-qty-selector .qty-input {
+  width: 34px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.product-qty-selector .qty-input::-webkit-outer-spin-button,
+.product-qty-selector .qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-add-cart-detail {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: var(--gq-purple);
+  color: #FFFFFF !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(67, 26, 105, 0.2);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-add-cart-detail:hover {
+  background: #351455;
+  transform: translateY(-1px);
+}
+
+.btn-whatsapp-detail {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 18px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: #25D366;
+  color: #FFFFFF !important;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-whatsapp-detail:hover {
+  background: #1EBE5D;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* Product Description & Reassurance Box */
+.product-detail-description {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  white-space: pre-line;
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.product-reassurance-box {
+  background: #F9F8FA;
+  border: 1px solid #ECE7F2;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.product-reassurance-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.reassurance-row-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--gq-purple);
+  flex-shrink: 0;
+}
 
 @media (min-width: 760px) { .products-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media (min-width: 1100px) { .products-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
 @media (max-width: 991px) { .hero-shell { grid-template-columns:1fr 310px; gap:26px; }.product-main-grid { grid-template-columns:1fr; gap:30px; }.hero-copy { padding:30px 0; }.hero-showcase { min-height:350px; }.hero-product-card { min-height:330px; } }
-@media (max-width: 639px) { .hero-section { padding:18px 0 30px; }.hero-shell { grid-template-columns:1fr; gap:12px; }.hero-copy { padding:28px 0 10px; }.hero-title { font-size:2.65rem; }.hero-showcase { min-height:0; padding:0; }.hero-product-card { min-height:340px; }.hero-product-image { min-height:190px; }.hero-actions { gap:10px; }.hero-actions .btn { width:auto; }.hero-text-link { padding-left:0; }.reassurance-grid { gap:0; }.reassurance-item { padding:16px 4px; }.reassurance-item + .reassurance-item { border-top:1px solid var(--border-color); }.category-grid { grid-template-columns:repeat(2,1fr); }.home-categories { padding-top:46px; }.home-products-section { padding-top:52px; }.section-title { font-size:23px; }.products-grid { gap:25px 10px; }.product-card-image-box { padding:16px; }.product-card-title { font-size:13px; }.product-card-footer { flex-wrap:wrap; }.product-card-footer > div:last-child { width:100%; display:flex; }.product-card-footer > div:last-child .btn { flex:1; }.product-main-grid { margin-bottom:30px; }.gallery-main-box { padding:18px; }.product-detail-layout { padding-top:22px; }.product-detail-title { font-size:28px; } }
+
+@media (max-width: 639px) {
+  /* Prevent content hiding behind floating button */
+  body {
+    padding-bottom: 76px;
+  }
+
+  .whatsapp-float-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    right: 16px;
+    bottom: 18px;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  }
+
+  .whatsapp-float-btn span {
+    display: none !important;
+  }
+
+  .whatsapp-brand-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Hero Section Typography */
+  .hero-section {
+    padding: 24px 0 30px;
+  }
+
+  .hero-shell {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-copy {
+    padding: 20px 0 10px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .hero-showcase {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .hero-product-card {
+    min-height: 300px;
+  }
+
+  .hero-product-image {
+    min-height: 170px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-text-link {
+    padding-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Reassurance Items on Home */
+  .reassurance-grid {
+    gap: 0;
+  }
+
+  .reassurance-item {
+    padding: 14px 4px;
+  }
+
+  .reassurance-item + .reassurance-item {
+    border-top: 1px solid var(--border-color);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .home-categories {
+    padding-top: 36px;
+  }
+
+  .home-products-section {
+    padding-top: 40px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .products-grid {
+    gap: 18px 10px;
+  }
+
+  .product-card-image-box {
+    padding: 14px;
+  }
+
+  .product-card-title {
+    font-size: 13px;
+  }
+
+  .product-card-footer {
+    flex-wrap: wrap;
+  }
+
+  .product-card-footer > div:last-child {
+    width: 100%;
+    display: flex;
+  }
+
+  .product-card-footer > div:last-child .btn {
+    flex: 1;
+  }
+
+  /* Product Detail Page Mobile Polish */
+  .product-detail-layout {
+    padding-top: 14px;
+    padding-bottom: 24px;
+  }
+
+  .product-breadcrumb {
+    font-size: 11.5px;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .product-main-grid {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .gallery-main-box {
+    padding: 16px;
+  }
+
+  .product-detail-title {
+    font-size: 1.25rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.015em !important;
+    margin-bottom: 6px;
+  }
+
+  .detail-price {
+    font-size: 1.45rem !important;
+    letter-spacing: -0.02em;
+  }
+
+  .detail-old-price {
+    font-size: 0.95rem;
+  }
+
+  .product-price-box {
+    padding: 12px 14px;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .product-actions-row {
+    gap: 8px;
+  }
+
+  .product-qty-selector {
+    height: 46px;
+  }
+
+  .btn-add-cart-detail {
+    height: 46px;
+    font-size: 13.5px;
+    padding: 0 10px;
+  }
+
+  .btn-whatsapp-detail {
+    height: 48px;
+    font-size: 14.5px;
+  }
+
+  .specs-card {
+    margin-top: 24px;
+  }
+
+  .specs-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
 
 /* ==========================================================================
    GQ STORE — HEADER & NAVIGATION (MASTER DESIGN SYSTEM)
@@ -2027,10 +2440,25 @@ html, body {
   }
 
   .whatsapp-float-btn {
-    width: 54px;
-    height: 54px;
-    bottom: 20px;
-    right: 20px;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    bottom: 20px !important;
+    right: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.42) !important;
+  }
+
+  .whatsapp-float-btn span {
+    display: none !important;
+  }
+
+  .whatsapp-float-btn .whatsapp-brand-icon {
+    width: 26px !important;
+    height: 26px !important;
   }
 }
 
