@@ -1,6 +1,11 @@
 {
   "files": {
     "code": [
+      ".agents/hooks/graphify-post-tool.js",
+      ".agents/hooks/graphify-pre-invocation.js",
+      ".agents/hooks/pre-invocation.js",
+      ".agents/hooks/pre-tool.js",
+      ".cursor/mcp.json",
       "prisma/migrations/20260908090027_init_milestone_1/migration.sql",
       "prisma/seed.js",
       "public/js/admin.js",
@@ -57,6 +62,17 @@
       "test/seo.test.js"
     ],
     "document": [
+      ".agents/rules/graphify.md",
+      ".agents/skills/graphify/SKILL.md",
+      ".agents/workflows/graphify.md",
+      ".github/workflows/ci.yml",
+      ".graphify/GRAPH_REPORT.md",
+      ".graphify/description-instructions/batch-000.md",
+      ".graphify/description-instructions/batch-001.md",
+      ".graphify/description-instructions/batch-002.md",
+      ".graphify/description-instructions/batch-003.md",
+      ".graphify/description-instructions/batch-004.md",
+      ".graphify/label-instructions/communities.md",
       "AGENTS.md",
       "_build_plan/milestones/1-fondations-admin/milestone-log.md",
       "_build_plan/milestones/1-fondations-admin/prompt.md",
@@ -66,6 +82,7 @@
       "_build_plan/milestones/3-panier-whatsapp/prompt.md",
       "_build_plan/milestones/4-seo/milestone-log.md",
       "_build_plan/milestones/4-seo/prompt.md",
+      "_build_plan/milestones/5-finition-deploiement/milestone-log.md",
       "_build_plan/milestones/5-finition-deploiement/prompt.md",
       "_build_plan/prd.html",
       "render.yaml"
@@ -73,40 +90,40 @@
     "paper": [],
     "image": [
       "assets/logo-gq-store.png",
-      "image.png",
       "public/images/logo-gq-store.png"
     ],
     "video": []
   },
-  "total_files": 69,
-  "total_words": 58869,
+  "total_files": 85,
+  "total_words": 70836,
   "needs_graph": true,
   "warning": null,
   "skipped_sensitive": [],
-  "graphifyignore_patterns": 17,
+  "graphifyignore_patterns": 18,
   "git": {
     "source_owner": "git",
-    "source_hash": "0778fb761c9def0291cc2ae9942bd6023418047c",
+    "source_hash": "f11430a59746c6166cd98ba38fb82f249f38034b",
     "branches": [
-      "claude/install-bm-skills-g64nae"
+      "claude/install-bm-skills-g64nae",
+      "main"
     ],
     "max_commits": 200,
     "active_within_days": 30
   },
   "scope": {
-    "requested_mode": "all",
-    "resolved_mode": "all",
-    "source": "cli",
+    "requested_mode": "auto",
+    "resolved_mode": "committed",
+    "source": "default-auto",
     "root": ".",
     "git_root": ".",
-    "head": "0778fb761c9def0291cc2ae9942bd6023418047c",
-    "candidate_count": null,
-    "included_count": 69,
+    "head": "f11430a59746c6166cd98ba38fb82f249f38034b",
+    "candidate_count": 107,
+    "included_count": 85,
     "excluded_untracked_count": 0,
-    "excluded_ignored_count": 0,
+    "excluded_ignored_count": 3123,
     "excluded_sensitive_count": 0,
     "missing_committed_count": 0,
     "warnings": [],
-    "recommendation": null
+    "recommendation": "Use --scope all or graphify.yaml inputs.corpus for a knowledge-base folder."
   }
 }

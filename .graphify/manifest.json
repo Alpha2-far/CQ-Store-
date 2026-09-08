@@ -48,8 +48,8 @@
     "hash": "5ba8bf98441ddf351626c1db3effb816"
   },
   "src/app.js": {
-    "mtime": 1788877958741.115,
-    "hash": "513437082c9e70be712ad439638d67fb"
+    "mtime": 1788879459689.177,
+    "hash": "e9eba301570c4c98f50f3658a09416c3"
   },
   "src/config/cloudinary.js": {
     "mtime": 1788876135011.012,
@@ -220,8 +220,8 @@
     "hash": "17d6d526ac90eca5eecefda3f9a2b982"
   },
   "test/public.test.js": {
-    "mtime": 1788860461820.8848,
-    "hash": "67313510443715b71d52bcdd48fb9ccb"
+    "mtime": 1788879576735.7847,
+    "hash": "bce15830ae6afc1e339671a15569f52a"
   },
   "src/views/public/cart.ejs": {
     "mtime": 1788861840984.159,
@@ -238,10 +238,6 @@
   "_build_plan/milestones/3-panier-whatsapp/milestone-log.md": {
     "mtime": 1788863176261.0579,
     "hash": "0e16687b805607fec7d9dfd5869ba56a"
-  },
-  "image.png": {
-    "mtime": 1788864097783.3494,
-    "hash": "cd1da7b45d4e892501e2e487b8ad01db"
   },
   "src/controllers/seo.controller.js": {
     "mtime": 1788877323377.5962,
@@ -272,7 +268,75 @@
     "hash": "03558165ed356d1740eefdf7ee9be040"
   },
   "render.yaml": {
-    "mtime": 1788878088260.1702,
-    "hash": "30d2bbeadf0001222647a2a2ca201609"
+    "mtime": 1788879717496.4468,
+    "hash": "27e2d7a79a6459a9f5de91128802fadf"
+  },
+  ".agents/hooks/graphify-post-tool.js": {
+    "mtime": 1788859521536.9585,
+    "hash": "aa5c0e6275d919b7f452a3a715bea0cc"
+  },
+  ".agents/hooks/graphify-pre-invocation.js": {
+    "mtime": 1788859530983.2485,
+    "hash": "e7f0a654e2cbca7c9a7e10a1ae69729e"
+  },
+  ".agents/hooks/pre-invocation.js": {
+    "mtime": 1788859120475.7703,
+    "hash": "d8aecb40398cd510db4f0b0c80a15d00"
+  },
+  ".agents/hooks/pre-tool.js": {
+    "mtime": 1788859129551.648,
+    "hash": "5f975d33e220b74e65cc61ff01dafcee"
+  },
+  ".cursor/mcp.json": {
+    "mtime": 1788858237432.2725,
+    "hash": "1b084a5ffc4640ba9aace3046faa68f3"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1788859324968.5493,
+    "hash": "613d8e4475364ba6b9b68c5663a180a0"
+  },
+  ".agents/skills/graphify/SKILL.md": {
+    "mtime": 1788859324951.3638,
+    "hash": "c1571f7a7f451058f7ef8173f62d2063"
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1788859324976.3496,
+    "hash": "8663b88b8301446ecc7c24c1fb052108"
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1788857945835.294,
+    "hash": "dad1fd37d74ac32b5d769846002a537c"
+  },
+  ".graphify/GRAPH_REPORT.md": {
+    "mtime": 1788878296315.3767,
+    "hash": "f7ff01fe3ef29836515ba70f4855140f"
+  },
+  ".graphify/description-instructions/batch-000.md": {
+    "mtime": 1788878296216.6226,
+    "hash": "13c42659ed0fd9277ce9e41b5770ac74"
+  },
+  ".graphify/description-instructions/batch-001.md": {
+    "mtime": 1788878296220.3794,
+    "hash": "667f320e8fb69ccc2be174437d093b8a"
+  },
+  ".graphify/description-instructions/batch-002.md": {
+    "mtime": 1788878296222.0781,
+    "hash": "b7d242dbac559aee62fa1ea6502d3766"
+  },
+  ".graphify/description-instructions/batch-003.md": {
+    "mtime": 1788878296223.0217,
+    "hash": "0870535e27990e8ede3a24e454f7cdad"
+  },
+  ".graphify/description-instructions/batch-004.md": {
+    "mtime": 1788878296223.4824,
+    "hash": "8cb95d185029a0f9eca9a0a76ed27646"
+  },
+  ".graphify/label-instructions/communities.md": {
+    "mtime": 1788878296106.4458,
+    "hash": "8e2a4ad8cfd67ab4ca0b2031c8e57ccb"
+  },
+  "_build_plan/milestones/5-finition-deploiement/milestone-log.md": {
+    "mtime": 1788878319837.091,
+    "hash": "b37a9d9f01f4ab2a77bdf4036e9f4fe1"
   }
 }

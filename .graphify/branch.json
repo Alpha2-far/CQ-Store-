@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "branchName": "claude/install-bm-skills-g64nae",
+  "branchName": "main",
   "worktreePath": "/Users/farelviaho/Desktop/CQ-Store-",
-  "upstream": "origin/claude/install-bm-skills-g64nae",
-  "mergeBase": "0778fb761c9def0291cc2ae9942bd6023418047c",
-  "firstSeenHead": "0778fb761c9def0291cc2ae9942bd6023418047c",
-  "lastSeenHead": "0778fb761c9def0291cc2ae9942bd6023418047c",
-  "lastAnalyzedHead": "0778fb761c9def0291cc2ae9942bd6023418047c",
+  "upstream": "origin/main",
+  "mergeBase": "f11430a59746c6166cd98ba38fb82f249f38034b",
+  "firstSeenHead": "f11430a59746c6166cd98ba38fb82f249f38034b",
+  "lastSeenHead": "f11430a59746c6166cd98ba38fb82f249f38034b",
+  "lastAnalyzedHead": "f11430a59746c6166cd98ba38fb82f249f38034b",
   "stale": false,
   "staleReason": null,
   "staleSince": null,
   "lifecycleEvent": null,
-  "createdAt": "2026-09-08T09:22:24.898Z",
-  "updatedAt": "2026-09-08T14:38:16.528Z"
+  "createdAt": "2026-09-08T15:12:15.875Z",
+  "updatedAt": "2026-09-08T15:12:15.875Z"
 }

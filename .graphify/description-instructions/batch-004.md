@@ -1,4 +1,4 @@
-# Node Description Batch 5 of 5
+# Node Description Batch 5 of 6
 
 Graphify is running in assistant/skill mode (no API key). You are the host
 assistant (Claude Code / Codex / Gemini CLI). Read the prompt below and write
@@ -17,43 +17,46 @@ No marketing language.
 Respond ONLY with a JSON object mapping each node id (as a string) to its
 one-sentence description — no prose, no markdown fences.
 
+- "routes_category_routes_categorycontroller": "categoryController" | kind=code-symbol | source=src/routes/category.routes.js:L3 | neighbors=[category.routes.js]
+- "routes_category_routes_express": "express" | kind=code-symbol | source=src/routes/category.routes.js:L1 | neighbors=[category.routes.js]
+- "routes_category_routes_requireauth": "{ requireAuth }" | kind=code-symbol | source=src/routes/category.routes.js:L4 | neighbors=[category.routes.js]
+- "routes_category_routes_router": "router" | kind=code-symbol | source=src/routes/category.routes.js:L2 | neighbors=[category.routes.js]
+- "routes_product_routes_express": "express" | kind=code-symbol | source=src/routes/product.routes.js:L1 | neighbors=[product.routes.js]
+- "routes_product_routes_productcontroller": "productController" | kind=code-symbol | source=src/routes/product.routes.js:L3 | neighbors=[product.routes.js]
+- "routes_product_routes_requireauth": "{ requireAuth }" | kind=code-symbol | source=src/routes/product.routes.js:L4 | neighbors=[product.routes.js]
+- "routes_product_routes_router": "router" | kind=code-symbol | source=src/routes/product.routes.js:L2 | neighbors=[product.routes.js]
+- "routes_product_routes_upload": "{ upload }" | kind=code-symbol | source=src/routes/product.routes.js:L5 | neighbors=[product.routes.js]
+- "routes_public_routes_express": "express" | kind=code-symbol | source=src/routes/public.routes.js:L1 | neighbors=[public.routes.js]
+- "routes_public_routes_publiccontroller": "publicController" | kind=code-symbol | source=src/routes/public.routes.js:L3 | neighbors=[public.routes.js]
+- "routes_public_routes_router": "router" | kind=code-symbol | source=src/routes/public.routes.js:L2 | neighbors=[public.routes.js]
+- "routes_public_routes_seocontroller": "seoController" | kind=code-symbol | source=src/routes/public.routes.js:L4 | neighbors=[public.routes.js]
+- "src_app_adminroutes": "adminRoutes" | kind=code-symbol | source=src/app.js:L11 | neighbors=[app.js]
+- "src_app_app": "app" | kind=code-symbol | source=src/app.js:L14 | neighbors=[app.js]
+- "src_app_authlocals": "{ authLocals }" | kind=code-symbol | source=src/app.js:L10 | neighbors=[app.js]
+- "src_app_compression": "compression" | kind=code-symbol | source=src/app.js:L7 | neighbors=[app.js]
+- "src_app_express": "express" | kind=code-symbol | source=src/app.js:L1 | neighbors=[app.js]
+- "src_app_helmet": "helmet" | kind=code-symbol | source=src/app.js:L6 | neighbors=[app.js]
+- "src_app_notfoundhandler_errorhandler": "{ notFoundHandler, errorHandler }" | kind=code-symbol | source=src/app.js:L12 | neighbors=[app.js]
+- "src_app_path": "path" | kind=code-symbol | source=src/app.js:L2 | neighbors=[app.js]
+- "src_app_pgsession": "pgSession" | kind=code-symbol | source=src/app.js:L4 | neighbors=[app.js]
+- "src_app_pool": "{ Pool }" | kind=code-symbol | source=src/app.js:L5 | neighbors=[app.js]
+- "src_app_publicroutes": "publicRoutes" | kind=code-symbol | source=src/app.js:L97 | neighbors=[app.js]
+- "src_app_session": "session" | kind=code-symbol | source=src/app.js:L3 | neighbors=[app.js]
+- "src_app_sessionconfig": "sessionConfig" | kind=code-symbol | source=src/app.js:L58 | neighbors=[app.js]
+- "src_server_app": "app" | kind=code-symbol | source=src/server.js:L1 | neighbors=[server.js]
+- "src_server_server": "server" | kind=code-symbol | source=src/server.js:L6 | neighbors=[server.js]
+- "test_acceptance_test_app": "app" | kind=code-symbol | source=test/acceptance.test.js:L4 | neighbors=[acceptance.test.js]
+- "test_acceptance_test_assert": "assert" | kind=code-symbol | source=test/acceptance.test.js:L2 | neighbors=[acceptance.test.js]
+- "test_acceptance_test_http": "http" | kind=code-symbol | source=test/acceptance.test.js:L3 | neighbors=[acceptance.test.js]
+- "test_acceptance_test_prisma": "prisma" | kind=code-symbol | source=test/acceptance.test.js:L5 | neighbors=[acceptance.test.js]
+- "test_acceptance_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/acceptance.test.js:L1 | neighbors=[acceptance.test.js]
+- "test_app_test_app": "app" | kind=code-symbol | source=test/app.test.js:L4 | neighbors=[app.test.js]
+- "test_app_test_assert": "assert" | kind=code-symbol | source=test/app.test.js:L2 | neighbors=[app.test.js]
+- "test_app_test_http": "http" | kind=code-symbol | source=test/app.test.js:L3 | neighbors=[app.test.js]
+- "test_app_test_prisma": "prisma" | kind=code-symbol | source=test/app.test.js:L5 | neighbors=[app.test.js]
+- "test_app_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/app.test.js:L1 | neighbors=[app.test.js]
+- "test_cart_test_app": "app" | kind=code-symbol | source=test/cart.test.js:L4 | neighbors=[cart.test.js]
 - "test_cart_test_assert": "assert" | kind=code-symbol | source=test/cart.test.js:L2 | neighbors=[cart.test.js]
-- "test_cart_test_http": "http" | kind=code-symbol | source=test/cart.test.js:L3 | neighbors=[cart.test.js]
-- "test_cart_test_prisma": "prisma" | kind=code-symbol | source=test/cart.test.js:L5 | neighbors=[cart.test.js]
-- "test_cart_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/cart.test.js:L1 | neighbors=[cart.test.js]
-- "test_public_test_app": "app" | kind=code-symbol | source=test/public.test.js:L4 | neighbors=[public.test.js]
-- "test_public_test_assert": "assert" | kind=code-symbol | source=test/public.test.js:L2 | neighbors=[public.test.js]
-- "test_public_test_http": "http" | kind=code-symbol | source=test/public.test.js:L3 | neighbors=[public.test.js]
-- "test_public_test_prisma": "prisma" | kind=code-symbol | source=test/public.test.js:L5 | neighbors=[public.test.js]
-- "test_public_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/public.test.js:L1 | neighbors=[public.test.js]
-- "test_seo_test_app": "app" | kind=code-symbol | source=test/seo.test.js:L4 | neighbors=[seo.test.js]
-- "test_seo_test_assert": "assert" | kind=code-symbol | source=test/seo.test.js:L2 | neighbors=[seo.test.js]
-- "test_seo_test_http": "http" | kind=code-symbol | source=test/seo.test.js:L3 | neighbors=[seo.test.js]
-- "test_seo_test_prisma": "prisma" | kind=code-symbol | source=test/seo.test.js:L5 | neighbors=[seo.test.js]
-- "test_seo_test_test_describe_before_after": "{ test, describe, before, after }" | kind=code-symbol | source=test/seo.test.js:L1 | neighbors=[seo.test.js]
-- "utils_seo_formatfcfa": "{ formatFCFA }" | kind=code-symbol | source=src/utils/seo.js:L1 | neighbors=[seo.js]
-- "admin_dashboard": "dashboard.ejs" | kind=code-symbol | source=src/views/admin/dashboard.ejs:L1
-- "admin_login": "login.ejs" | kind=code-symbol | source=src/views/admin/login.ejs:L1
-- "brands_form": "form.ejs" | kind=code-symbol | source=src/views/admin/brands/form.ejs:L1
-- "brands_index": "index.ejs" | kind=code-symbol | source=src/views/admin/brands/index.ejs:L1
-- "categories_form": "form.ejs" | kind=code-symbol | source=src/views/admin/categories/form.ejs:L1
-- "categories_index": "index.ejs" | kind=code-symbol | source=src/views/admin/categories/index.ejs:L1
-- "js_admin": "admin.js" | kind=code-symbol | source=public/js/admin.js:L1
-- "js_product_form": "product-form.js" | kind=code-symbol | source=public/js/product-form.js:L1
-- "partials_admin_header": "admin-header.ejs" | kind=code-symbol | source=src/views/partials/admin-header.ejs:L1
-- "partials_admin_sidebar": "admin-sidebar.ejs" | kind=code-symbol | source=src/views/partials/admin-sidebar.ejs:L1
-- "partials_flash_messages": "flash-messages.ejs" | kind=code-symbol | source=src/views/partials/flash-messages.ejs:L1
-- "partials_footer": "footer.ejs" | kind=code-symbol | source=src/views/partials/footer.ejs:L1
-- "partials_header": "header.ejs" | kind=code-symbol | source=src/views/partials/header.ejs:L1
-- "partials_public_footer": "public-footer.ejs" | kind=code-symbol | source=src/views/partials/public-footer.ejs:L1
-- "partials_public_header": "public-header.ejs" | kind=code-symbol | source=src/views/partials/public-header.ejs:L1
-- "products_form": "form.ejs" | kind=code-symbol | source=src/views/admin/products/form.ejs:L1
-- "products_index": "index.ejs" | kind=code-symbol | source=src/views/admin/products/index.ejs:L1
-- "public_404": "404.ejs" | kind=code-symbol | source=src/views/public/404.ejs:L1
-- "public_500": "500.ejs" | kind=code-symbol | source=src/views/public/500.ejs:L1
-- "public_cart": "cart.ejs" | kind=code-symbol | source=src/views/public/cart.ejs:L1
-- "public_home": "home.ejs" | kind=code-symbol | source=src/views/public/home.ejs:L1
-- "public_product": "product.ejs" | kind=code-symbol | source=src/views/public/product.ejs:L1
 
 ## Instructions
 
