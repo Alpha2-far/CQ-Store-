@@ -15,7 +15,7 @@ services:
     plan: free
     region: frankfurt
     buildCommand: npm install && npm run build
-    startCommand: npx prisma db push && npm start
+    startCommand: npm start
     healthCheckPath: /robots.txt
     envVars:
       - key: NODE_ENV
